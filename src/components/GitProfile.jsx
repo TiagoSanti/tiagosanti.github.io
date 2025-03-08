@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Fragment, useCallback, useEffect, useState } from 'react';
+import { Fragment, useCallback, useEffect, useState, useMemo } from 'react';
 import HeadTagEditor from './head-tag-editor';
 import ErrorPage from './error-page';
 import ThemeChanger from './theme-changer';
@@ -20,26 +20,42 @@ import {
   setupHotjar,
   tooManyRequestError,
   sanitizeConfig,
+  skeleton,
 } from '../helpers/utils';
 import { HelmetProvider } from 'react-helmet-async';
 import PropTypes from 'prop-types';
 import '../assets/index.css';
 import { formatDistance } from 'date-fns';
 import ExternalProject from './external-project';
+import { AiOutlineControl } from 'react-icons/ai';
 
 const bgColor = 'bg-base-300';
 
-const GitProfile = ({ config }) => {
+const GitProfile = ({ config, languageSwitcher }) => {
   const [error, setError] = useState(
     typeof config === 'undefined' && !config ? noConfigError : null
   );
-  const [sanitizedConfig] = useState(
-    typeof config === 'undefined' && !config ? null : sanitizeConfig(config)
+  
+  // Use useMemo instead of useState so it updates when config changes
+  const sanitizedConfig = useMemo(() => 
+    typeof config === 'undefined' && !config ? null : sanitizeConfig(config),
+    [config]
   );
+  
   const [theme, setTheme] = useState(null);
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState(null);
   const [repo, setRepo] = useState(null);
+
+  // Reset loading state when config changes
+  useEffect(() => {
+    if (sanitizedConfig) {
+      // Clear previous data and set loading when language/config changes
+      setLoading(true);
+      setProfile(null);
+      setRepo(null);
+    }
+  }, [sanitizedConfig]);
 
   useEffect(() => {
     if (sanitizedConfig) {
@@ -133,6 +149,11 @@ const GitProfile = ({ config }) => {
     }
   };
 
+  const changeTheme = (e, newTheme) => {
+    e.preventDefault();
+    setTheme(newTheme);
+  };
+
   return (
     <HelmetProvider>
       {sanitizedConfig && (
@@ -151,20 +172,61 @@ const GitProfile = ({ config }) => {
             subTitle={error.subTitle}
           />
         ) : (
-          sanitizedConfig && (
-            <Fragment>
-              <div className={`p-4 lg:p-10 min-h-full ${bgColor}`}>
+          <Fragment>
+            <div className={`p-2 lg:p-4 min-h-full ${bgColor}`}>
+              <div className="container mx-auto">
+                <div className="flex justify-end items-center gap-2 mb-6">
+                  {!sanitizedConfig.themeConfig.disableSwitch && (
+                    <div title="Change Theme" className="dropdown dropdown-end">
+                      <div
+                        tabIndex={0}
+                        className="btn btn-ghost m-1 normal-case opacity-50 text-base-content"
+                      >
+                        <AiOutlineControl className="inline-block w-5 h-5 stroke-current md:mr-2" />
+                        <span className="hidden md:inline">Change Theme</span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 1792 1792"
+                          className="inline-block w-4 h-4 ml-1 fill-current"
+                        >
+                          <path d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z" />
+                        </svg>
+                      </div>
+                      <div
+                        tabIndex={0}
+                        className="mt-16 overflow-y-auto shadow-2xl top-px dropdown-content max-h-96 w-52 rounded-lg bg-base-200 text-base-content z-10"
+                      >
+                        <ul className="p-4 menu compact">
+                          {[
+                            sanitizedConfig.themeConfig.defaultTheme,
+                            ...sanitizedConfig.themeConfig.themes.filter(
+                              (item) =>
+                                item !== sanitizedConfig.themeConfig.defaultTheme
+                            ),
+                          ].map((item, index) => (
+                            <li key={index}>
+                              {/* eslint-disable-next-line */}
+                              <a
+                                onClick={(e) => changeTheme(e, item)}
+                                className={`${theme === item ? 'active' : ''}`}
+                              >
+                                <span className="opacity-60 capitalize">
+                                  {item === sanitizedConfig.themeConfig.defaultTheme
+                                    ? 'Default'
+                                    : item}
+                                </span>
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+                  {languageSwitcher}
+                </div>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 rounded-box">
                   <div className="col-span-1">
                     <div className="grid grid-cols-1 gap-6">
-                      {!sanitizedConfig.themeConfig.disableSwitch && (
-                        <ThemeChanger
-                          theme={theme}
-                          setTheme={setTheme}
-                          loading={loading}
-                          themeConfig={sanitizedConfig.themeConfig}
-                        />
-                      )}
                       <AvatarCard
                         profile={profile}
                         loading={loading}
@@ -217,15 +279,15 @@ const GitProfile = ({ config }) => {
                   </div>
                 </div>
               </div>
-              <footer
-                className={`p-4 footer ${bgColor} text-base-content footer-center`}
-              >
+            </div>
+            <footer className={`p-2 lg:p-4 footer ${bgColor} text-base-content footer-center`}>
+              <div className="container mx-auto">
                 <div className="card compact bg-base-100 shadow">
                   <Footer content={sanitizedConfig.footer} loading={loading} />
                 </div>
-              </footer>
-            </Fragment>
-          )
+              </div>
+            </footer>
+          </Fragment>
         )}
       </div>
     </HelmetProvider>
@@ -327,6 +389,7 @@ GitProfile.propTypes = {
     }),
     footer: PropTypes.string,
   }).isRequired,
+  languageSwitcher: PropTypes.node,
 };
 
 export default GitProfile;
