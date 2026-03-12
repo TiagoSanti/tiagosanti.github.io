@@ -29,19 +29,19 @@ const config = {
     email: 'tiagosanti2009@gmail.com',
   },
   resume: {
-    fileUrl:
-      'https://drive.google.com/file/d/1G5ZiywkY32xk43mkpnILHanXmXsKp72v/view?usp=sharing', // Empty fileUrl will hide the `Download Resume` button.
+    fileUrl: '', // Empty fileUrl will hide the `Download Resume` button.
   },
+  skillsTitle: 'Skills',
   skills: [
     'English - Advanced',
     'Portuguese - Native',
-    'Python - Data Science & ML (Pandas | NumPy | Scikit-learn | PyTorch | FastAPI)',
+    'Python - ML, Data Science, ML',
     'Software Development - C# | C | Java | JavaScript',
     'Database & Query Languages - SQL',
     'Version Control & Collaboration - Git | GitHub',
     'DevOps & Containerization - Docker',
     'Project Management - Scrum | Kanban',
-    'Artificial Intelligence & Machine Learning - Classical ML | Deep Learning | Neural Networks',
+    'Classical ML | Deep Learning | Neural Networks | Continuous Incremental Learning',
     'Large Language Models (LLM) - Prompt Engineering | Fine-tuning | RAG Systems',
     'Computer Vision - Object Detection | Face Recognition | Image Processing',
     'Natural Language Processing - Sentiment Analysis | Text Classification',
@@ -50,6 +50,14 @@ const config = {
     'Cloud Services - GCS | BigQuery | Looker Studio | Compute Engine | App Engine',
   ],
   experiences: [
+    {
+      company: 'LEDES - Software Engineering Laboratory',
+      position: 'Artificial Intelligence Engineer - Scholarship',
+      from: 'February 2025',
+      to: 'Present',
+      companyLink: 'https://www.facom.ufms.br/',
+      description: 'Application of concepts in technological innovation and process automation in public advocacy.',
+    },
     {
       company: 'SESI Innovation Center in Technologies for Health and Safety at Work',
       position: 'Software Developer Specialist Scholarship', 

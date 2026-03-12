@@ -29,10 +29,11 @@ const config = {
     email: 'tiagosanti2009@gmail.com',
   },
   resume: {
-    fileUrl:
-      'https://drive.google.com/file/d/1G5ZiywkY32xk43mkpnILHanXmXsKp72v/view?usp=sharing',
+    fileUrl: '', // URL vazia oculta o botão de download do currículo.
   },
+  skillsTitle: 'Competências',
   skills: [
+    'Aprendizagem Incremental Contínua',
     'Inglês - Avançado',
     'Português - Nativo',
     'Python - Ciência de Dados & AM (Pandas | NumPy | Scikit-learn | PyTorch | FastAPI)',
@@ -51,11 +52,12 @@ const config = {
   ],
   experiences: [
     {
-      company: 'Laboratórios de Engenharia de Software e Inteligência Artificial',
-      position: 'Bolsista Desenvolvedor de Inteligência Artificial',
-      from: 'Março 2025',
+      company: 'LEDES - Laboratório de Engenharia de Software',
+      position: 'Engenheiro de Inteligência Artificial - Bolsista',
+      from: 'Fevereiro 2025',
       to: 'Presente',
-      companyLink: 'https://ufms.br/',
+      companyLink: 'https://www.facom.ufms.br/',
+      description: 'Aplicação de conceitos em inovação tecnológica e automação de processos na advocacia pública.',
     },
     {
       company: 'Centro de Inovação SESI em Tecnologias para Saúde e Segurança do Trabalho',
