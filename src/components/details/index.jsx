@@ -4,7 +4,7 @@ import {
   AiFillInstagram,
   AiFillMediumSquare,
 } from 'react-icons/ai';
-import { SiTwitter } from 'react-icons/si';
+import { FaTwitter } from 'react-icons/fa';
 import { CgDribbble } from 'react-icons/cg';
 import { RiPhoneFill, RiMailFill } from 'react-icons/ri';
 import { Fragment } from 'react';
@@ -120,7 +120,7 @@ const Details = ({ profile, loading, social, github, language = 'en' }) => {
               />
               {social?.twitter && (
                 <ListItem
-                  icon={<SiTwitter />}
+                  icon={<FaTwitter />}
                   title="Twitter:"
                   value={social.twitter}
                   link={`https://twitter.com/${social.twitter}`}

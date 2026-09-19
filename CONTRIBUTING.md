@@ -25,8 +25,11 @@ with a fix.
 
 ### Install dependencies
 
+Use Node.js 22.12 or newer (the minimum compatible Node 20 version is 20.19).
+This fork uses ES modules and ESLint's flat configuration in `eslint.config.mjs`.
+
 ```sh
-npm install
+npm ci
 ```
 
 ### Run dev server
@@ -36,6 +39,10 @@ npm run dev
 ```
 
 ### Linter
+
+Run `npm test`, `npm run lint`, `npm run prettier`, and `npm run build`
+before submitting changes. Run `npm run build:library` when changing shared
+components or packaging. Tests use Node's built-in test runner.
 
 Each PR should pass the linter to be accepted. To fix lint and prettier errors, run `npm run lint:fix` and `npm run prettier:fix`.
 

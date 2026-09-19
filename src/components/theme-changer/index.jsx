@@ -28,8 +28,8 @@ const ThemeChanger = ({ theme, setTheme, loading, themeConfig }) => {
             {loading
               ? skeleton({ width: 'w-16', height: 'h-5' })
               : theme === themeConfig.defaultTheme
-              ? 'Default'
-              : theme}
+                ? 'Default'
+                : theme}
           </span>
         </div>
         <div className="flex-0">
@@ -67,7 +67,6 @@ const ThemeChanger = ({ theme, setTheme, loading, themeConfig }) => {
                     ),
                   ].map((item, index) => (
                     <li key={index}>
-                      {/* eslint-disable-next-line */}
                       <a
                         onClick={(e) => changeTheme(e, item)}
                         className={`${theme === item ? 'active' : ''}`}

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Fragment, useEffect, useState, useMemo } from 'react';
+import { Fragment, Suspense, lazy, useEffect, useState, useMemo } from 'react';
 import HeadTagEditor from './head-tag-editor';
 import ErrorPage from './error-page';
 import ProfileOverview from './profile-overview';
@@ -11,7 +11,6 @@ import Experience from './experience';
 import Certification from './certification';
 import Education from './education';
 import Project from './project';
-import Blog from './blog';
 import Footer from './footer';
 import {
   genericError,
@@ -30,6 +29,7 @@ import ExternalProject from './external-project';
 import { AiOutlineControl } from 'react-icons/ai';
 
 const bgColor = 'bg-base-300';
+const Blog = lazy(() => import('./blog'));
 
 const GitProfile = ({ config, languageSwitcher }) => {
   if (!isValidConfig(config)) {
@@ -120,8 +120,8 @@ const GitProfileContent = ({ config, languageSwitcher }) => {
           details.kind === 'rate-limit'
             ? tooManyRequestError(details.reset)
             : details.kind === 'not-found'
-            ? notFoundError
-            : genericError
+              ? notFoundError
+              : genericError
         );
       } finally {
         if (!controller.signal.aborted) setLoading(false);
@@ -201,7 +201,6 @@ const GitProfileContent = ({ config, languageSwitcher }) => {
                             ),
                           ].map((item, index) => (
                             <li key={index}>
-                              {/* eslint-disable-next-line */}
                               <a
                                 onClick={(e) => changeTheme(e, item)}
                                 className={`${theme === item ? 'active' : ''}`}
@@ -299,11 +298,16 @@ const GitProfileContent = ({ config, languageSwitcher }) => {
                         github={sanitizedConfig.github}
                         googleAnalytics={sanitizedConfig.googleAnalytics}
                       />
-                      <Blog
-                        loading={loading}
-                        googleAnalytics={sanitizedConfig.googleAnalytics}
-                        blog={sanitizedConfig.blog}
-                      />
+                      {sanitizedConfig.blog.source &&
+                        sanitizedConfig.blog.username && (
+                          <Suspense fallback={null}>
+                            <Blog
+                              loading={loading}
+                              googleAnalytics={sanitizedConfig.googleAnalytics}
+                              blog={sanitizedConfig.blog}
+                            />
+                          </Suspense>
+                        )}
                     </div>
                   </div>
                 </div>

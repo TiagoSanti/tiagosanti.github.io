@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import tailwind from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
 import tailwindConfig from './tailwind.config.mjs';
-import path from 'path';
+import { fileURLToPath } from 'node:url';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,11 +15,15 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/components/GitProfile.jsx'),
+      entry: fileURLToPath(
+        new URL('./src/components/GitProfile.jsx', import.meta.url)
+      ),
       name: 'GitProfile',
-      fileName: (format) => `gitprofile.${format}.js`,
+      fileName: (format) =>
+        `gitprofile.${format}.${format === 'umd' ? 'cjs' : 'js'}`,
+      cssFileName: 'style',
     },
-    rollupOptions: {
+    rolldownOptions: {
       external: ['react', 'react-dom'],
       output: {
         globals: {

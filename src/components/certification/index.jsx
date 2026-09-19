@@ -14,7 +14,7 @@ const ListItem = ({ year, name, body, link }) => (
         {name}
       </a>
     </div>
-    <p className="mb-4 font-normal">{body}</p>
+    <div className="mb-4 font-normal">{body}</div>
   </li>
 );
 
