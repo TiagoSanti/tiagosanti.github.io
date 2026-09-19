@@ -219,7 +219,7 @@ export const tooManyRequestError = (reset) => {
         >
           rate limit
         </a>
-        ! Try again later{` ${reset}`}.
+        ! Try again later{reset ? ` ${reset}` : ''}.
       </p>
     ),
   };

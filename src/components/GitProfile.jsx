@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Fragment, useCallback, useEffect, useState, useMemo } from 'react';
+import { Fragment, useEffect, useState, useMemo } from 'react';
 import HeadTagEditor from './head-tag-editor';
 import ErrorPage from './error-page';
 import ProfileOverview from './profile-overview';
@@ -25,132 +25,111 @@ import {
 import { HelmetProvider } from 'react-helmet-async';
 import PropTypes from 'prop-types';
 import '../assets/index.css';
-import { formatDistance } from 'date-fns';
+import { getGithubErrorDetails, isValidConfig } from '../helpers/github.mjs';
 import ExternalProject from './external-project';
 import { AiOutlineControl } from 'react-icons/ai';
 
 const bgColor = 'bg-base-300';
 
 const GitProfile = ({ config, languageSwitcher }) => {
-  const [error, setError] = useState(
-    typeof config === 'undefined' && !config ? noConfigError : null
+  if (!isValidConfig(config)) {
+    return (
+      <ErrorPage
+        status={String(noConfigError.status)}
+        title={noConfigError.title}
+        subTitle={noConfigError.subTitle}
+      />
+    );
+  }
+  return (
+    <GitProfileContent config={config} languageSwitcher={languageSwitcher} />
   );
+};
 
-  // Use useMemo instead of useState so it updates when config changes
-  const sanitizedConfig = useMemo(
-    () =>
-      typeof config === 'undefined' && !config ? null : sanitizeConfig(config),
-    [config]
-  );
-
-  const language = sanitizedConfig?.language || 'en';
+const GitProfileContent = ({ config, languageSwitcher }) => {
+  const sanitizedConfig = useMemo(() => sanitizeConfig(config), [config]);
+  const [error, setError] = useState(null);
+  const language = sanitizedConfig.language;
   const pt = language === 'pt';
-  const [theme, setTheme] = useState(null);
+  const [theme, setTheme] = useState(() =>
+    getInitialTheme(sanitizedConfig.themeConfig)
+  );
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState(null);
-  const [repo, setRepo] = useState(null);
-
-  // Reset loading state when config changes
-  useEffect(() => {
-    if (sanitizedConfig) {
-      // Clear previous data and set loading when language/config changes
-      setLoading(true);
-      setProfile(null);
-      setRepo(null);
-    }
-  }, [sanitizedConfig]);
+  const [repo, setRepo] = useState([]);
+  const { username, sortBy, limit } = sanitizedConfig.github;
+  const excludeForks = sanitizedConfig.github.exclude.forks;
+  const excludedProjects = JSON.stringify(
+    sanitizedConfig.github.exclude.projects
+  );
 
   useEffect(() => {
-    if (sanitizedConfig) {
-      setTheme(getInitialTheme(sanitizedConfig.themeConfig));
-      setupHotjar(sanitizedConfig.hotjar);
-      loadData();
-    }
-  }, [sanitizedConfig]);
+    setupHotjar(sanitizedConfig.hotjar);
+  }, [sanitizedConfig.hotjar.id, sanitizedConfig.hotjar.snippetVersion]);
 
   useEffect(() => {
-    theme && document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
-  const loadData = useCallback(() => {
-    axios
-      .get(`https://api.github.com/users/${sanitizedConfig.github.username}`)
-      .then((response) => {
-        let data = response.data;
-
-        let profileData = {
+  useEffect(() => {
+    const controller = new AbortController();
+    const loadData = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const { data } = await axios.get(
+          'https://api.github.com/users/' + username,
+          { signal: controller.signal }
+        );
+        setProfile({
           avatar: data.avatar_url,
-          name: data.name ? data.name : '',
-          bio: data.bio ? data.bio : '',
-          location: data.location ? data.location : '',
-          company: data.company ? data.company : '',
-        };
-
-        setProfile(profileData);
-        return data;
-      })
-      .then((userData) => {
-        let excludeRepo = ``;
-        if (userData.public_repos === 0) {
+          name: data.name || '',
+          bio: data.bio || '',
+          location: data.location || '',
+          company: data.company || '',
+        });
+        if (!data.public_repos) {
           setRepo([]);
           return;
         }
-
-        sanitizedConfig.github.exclude.projects.forEach((project) => {
-          excludeRepo += `+-repo:${sanitizedConfig.github.username}/${project}`;
-        });
-
-        let query = `user:${
-          sanitizedConfig.github.username
-        }+fork:${!sanitizedConfig.github.exclude.forks}${excludeRepo}`;
-
-        let url = `https://api.github.com/search/repositories?q=${query}&sort=${sanitizedConfig.github.sortBy}&per_page=${sanitizedConfig.github.limit}&type=Repositories`;
-
-        axios
-          .get(url, {
-            headers: {
-              'Content-Type': 'application/vnd.github.v3+json',
+        const excluded = JSON.parse(excludedProjects).map(
+          (name) => '-repo:' + username + '/' + name
+        );
+        const query = [
+          'user:' + username,
+          'fork:' + !excludeForks,
+          ...excluded,
+        ].join(' ');
+        const response = await axios.get(
+          'https://api.github.com/search/repositories',
+          {
+            signal: controller.signal,
+            params: {
+              q: query,
+              sort: sortBy,
+              per_page: limit,
+              type: 'Repositories',
             },
-          })
-          .then((response) => {
-            let data = response.data;
-
-            setRepo(data.items);
-          })
-          .catch((error) => {
-            handleError(error);
-          });
-      })
-      .catch((error) => {
-        handleError(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [setLoading]);
-
-  const handleError = (error) => {
-    console.error('Error:', error);
-    try {
-      let reset = formatDistance(
-        new Date(error.response.headers['x-ratelimit-reset'] * 1000),
-        new Date(),
-        {
-          addSuffix: true,
-        }
-      );
-
-      if (error.response.status === 403) {
-        setError(tooManyRequestError(reset));
-      } else if (error.response.status === 404) {
-        setError(notFoundError);
-      } else {
-        setError(genericError);
+          }
+        );
+        setRepo(response.data.items);
+      } catch (failure) {
+        if (controller.signal.aborted) return;
+        const details = getGithubErrorDetails(failure);
+        setError(
+          details.kind === 'rate-limit'
+            ? tooManyRequestError(details.reset)
+            : details.kind === 'not-found'
+            ? notFoundError
+            : genericError
+        );
+      } finally {
+        if (!controller.signal.aborted) setLoading(false);
       }
-    } catch (error2) {
-      setError(genericError);
-    }
-  };
+    };
+    loadData();
+    return () => controller.abort();
+  }, [username, sortBy, limit, excludeForks, excludedProjects]);
 
   const displayProfile = profile
     ? { ...profile, ...sanitizedConfig.profile }
@@ -344,6 +323,11 @@ const GitProfile = ({ config, languageSwitcher }) => {
       </div>
     </HelmetProvider>
   );
+};
+
+GitProfileContent.propTypes = {
+  config: PropTypes.object.isRequired,
+  languageSwitcher: PropTypes.node,
 };
 
 GitProfile.propTypes = {
