@@ -2,7 +2,7 @@ import { skeleton } from '../../helpers/utils';
 import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-const ListItem = ({ time, degree, institution }) => (
+const ListItem = ({ time, degree, institution, description }) => (
   <li className="mb-5 ml-4">
     <div
       className="absolute w-2 h-2 bg-base-300 rounded-full border border-base-300 mt-1.5"
@@ -11,10 +11,11 @@ const ListItem = ({ time, degree, institution }) => (
     <div className="my-0.5 text-xs">{time}</div>
     <h3 className="font-semibold">{degree}</h3>
     <div className="mb-4 font-normal">{institution}</div>
+    {description && <p className="text-sm leading-relaxed">{description}</p>}
   </li>
 );
 
-const Education = ({ loading, education }) => {
+const Education = ({ title = 'Education', loading, education }) => {
   const renderSkeleton = () => {
     let array = [];
     for (let index = 0; index < 2; index++) {
@@ -44,15 +45,13 @@ const Education = ({ loading, education }) => {
         <div className="card shadow-lg compact bg-base-100">
           <div className="card-body">
             <div className="mx-3">
-              <h5 className="card-title">
+              <h2 className="card-title">
                 {loading ? (
                   skeleton({ width: 'w-32', height: 'h-8' })
                 ) : (
-                  <span className="text-base-content opacity-70">
-                    Education
-                  </span>
+                  <span className="text-base-content opacity-70">{title}</span>
                 )}
-              </h5>
+              </h2>
             </div>
             <div className="text-base-content text-opacity-60">
               <ol className="relative border-l border-base-300 border-opacity-30 my-2 mx-4">
@@ -64,6 +63,7 @@ const Education = ({ loading, education }) => {
                       <ListItem
                         key={index}
                         time={`${item.from} - ${item.to}`}
+                        description={item.description}
                         degree={item.degree}
                         institution={item.institution}
                       />
@@ -80,6 +80,7 @@ const Education = ({ loading, education }) => {
 };
 
 Education.propTypes = {
+  title: PropTypes.string,
   loading: PropTypes.bool.isRequired,
   education: PropTypes.array.isRequired,
 };
@@ -88,6 +89,7 @@ ListItem.propTypes = {
   time: PropTypes.node,
   degree: PropTypes.node,
   institution: PropTypes.node,
+  description: PropTypes.string,
 };
 
 export default Education;

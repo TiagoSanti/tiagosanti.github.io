@@ -1,7 +1,7 @@
 import { skeleton } from '../../helpers/utils';
 import PropTypes from 'prop-types';
 
-const Skill = ({ loading, skills }) => {
+const Skill = ({ title = 'Tech Stack', loading, skills }) => {
   const renderSkeleton = () => {
     let array = [];
     for (let index = 0; index < 12; index++) {
@@ -21,15 +21,13 @@ const Skill = ({ loading, skills }) => {
         <div className="card shadow-lg compact bg-base-100">
           <div className="card-body">
             <div className="mx-3">
-              <h5 className="card-title">
+              <h2 className="card-title">
                 {loading ? (
                   skeleton({ width: 'w-32', height: 'h-8' })
                 ) : (
-                  <span className="text-base-content opacity-70">
-                    Tech Stack
-                  </span>
+                  <span className="text-base-content opacity-70">{title}</span>
                 )}
-              </h5>
+              </h2>
             </div>
             <div className="p-3 flow-root">
               <div className="-m-1 flex flex-wrap justify-center">
@@ -53,6 +51,7 @@ const Skill = ({ loading, skills }) => {
 };
 
 Skill.propTypes = {
+  title: PropTypes.string,
   loading: PropTypes.bool.isRequired,
   skills: PropTypes.array.isRequired,
 };

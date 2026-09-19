@@ -135,6 +135,9 @@ export const sanitizeConfig = (config) => {
   ];
 
   return {
+    language: config?.language || 'en',
+    profile: config?.profile || {},
+    publications: config?.publications || [],
     github: {
       username: config?.github?.username || '',
       sortBy: config?.github?.sortBy || 'stars',
@@ -145,6 +148,7 @@ export const sanitizeConfig = (config) => {
       },
     },
     social: {
+      lattes: config?.social?.lattes,
       linkedin: config?.social?.linkedin,
       twitter: config?.social?.twitter,
       mastodon: config?.social?.mastodon,

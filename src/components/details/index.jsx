@@ -67,7 +67,7 @@ const ListItem = ({ icon, title, value, link, skeleton = false }) => {
   );
 };
 
-const Details = ({ profile, loading, social, github }) => {
+const Details = ({ profile, loading, social, github, language = 'en' }) => {
   const renderSkeleton = () => {
     let array = [];
     for (let index = 0; index < 4; index++) {
@@ -96,14 +96,14 @@ const Details = ({ profile, loading, social, github }) => {
               {profile.location && (
                 <ListItem
                   icon={<MdLocationOn />}
-                  title="Based in:"
+                  title={language === 'pt' ? 'Localização:' : 'Based in:'}
                   value={profile.location}
                 />
               )}
               {profile.company && (
                 <ListItem
                   icon={<FaBuilding />}
-                  title="Company:"
+                  title={language === 'pt' ? 'Instituição:' : 'Company:'}
                   value={profile.company}
                   link={
                     isCompanyMention(profile.company.trim())
@@ -234,7 +234,7 @@ const Details = ({ profile, loading, social, github }) => {
               {social?.phone && (
                 <ListItem
                   icon={<RiPhoneFill />}
-                  title="Phone:"
+                  title={language === 'pt' ? 'Telefone:' : 'Phone:'}
                   value={social.phone}
                   link={`tel:${social.phone}`}
                 />
@@ -256,6 +256,7 @@ const Details = ({ profile, loading, social, github }) => {
 };
 
 Details.propTypes = {
+  language: PropTypes.string,
   profile: PropTypes.object,
   loading: PropTypes.bool.isRequired,
   social: PropTypes.object.isRequired,

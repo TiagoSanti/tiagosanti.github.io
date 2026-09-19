@@ -39,6 +39,7 @@ export interface Github {
 }
 
 export interface Social {
+  lattes?: string;
   /**
    * LinkedIn
    */
@@ -228,6 +229,7 @@ export interface ThemeConfig {
 }
 
 export interface Experience {
+  description?: string;
   company?: string;
   position?: string;
   from?: string;
@@ -242,6 +244,8 @@ export interface Certifications {
 }
 
 export interface ExternalProjects {
+  details?: string;
+  linkLabel?: string;
   title: string;
   description: string;
   imageUrl?: string;
@@ -249,6 +253,7 @@ export interface ExternalProjects {
 }
 
 export interface Education {
+  description?: string;
   institution?: string;
   degree?: string;
   from?: string;
@@ -260,6 +265,15 @@ export interface Resume {
 }
 
 export interface Config {
+  language?: 'pt' | 'en';
+  profile?: { name?: string; bio?: string; about?: string };
+  publications?: Array<{
+    title: string;
+    authors: string;
+    year: string;
+    page: string;
+    link: string;
+  }>;
   /**
    * GitHub Config
    */

@@ -2,7 +2,7 @@ import { skeleton } from '../../helpers/utils';
 import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-const ListItem = ({ time, position, company, companyLink }) => (
+const ListItem = ({ time, position, company, companyLink, description }) => (
   <li className="mb-5 ml-4">
     <div
       className="absolute w-2 h-2 bg-base-300 rounded-full border border-base-300 mt-1.5"
@@ -15,10 +15,15 @@ const ListItem = ({ time, position, company, companyLink }) => (
         {company}
       </a>
     </div>
+    {description && <p className="text-sm leading-relaxed">{description}</p>}
   </li>
 );
 
-const Experience = ({ experiences, loading }) => {
+const Experience = ({
+  title = 'Professional Experience',
+  experiences,
+  loading,
+}) => {
   const renderSkeleton = () => {
     let array = [];
     for (let index = 0; index < 2; index++) {
@@ -47,15 +52,13 @@ const Experience = ({ experiences, loading }) => {
         <div className="card shadow-lg compact bg-base-100">
           <div className="card-body">
             <div className="mx-3">
-              <h5 className="card-title">
+              <h2 className="card-title">
                 {loading ? (
                   skeleton({ width: 'w-32', height: 'h-8' })
                 ) : (
-                  <span className="text-base-content opacity-70">
-                    Professional Experience
-                  </span>
+                  <span className="text-base-content opacity-70">{title}</span>
                 )}
-              </h5>
+              </h2>
             </div>
             <div className="text-base-content text-opacity-60">
               <ol className="relative border-l border-base-300 border-opacity-30 my-2 mx-4">
@@ -67,6 +70,7 @@ const Experience = ({ experiences, loading }) => {
                       <ListItem
                         key={index}
                         time={`${experience.from} - ${experience.to}`}
+                        description={experience.description}
                         position={experience.position}
                         company={experience.company}
                         companyLink={
@@ -90,9 +94,11 @@ ListItem.propTypes = {
   position: PropTypes.node,
   company: PropTypes.node,
   companyLink: PropTypes.string,
+  description: PropTypes.string,
 };
 
 Experience.propTypes = {
+  title: PropTypes.string,
   experiences: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired,
 };

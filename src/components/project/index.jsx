@@ -4,7 +4,14 @@ import { AiOutlineFork, AiOutlineStar } from 'react-icons/ai';
 import { MdInsertLink } from 'react-icons/md';
 import { ga, languageColor, skeleton } from '../../helpers/utils';
 
-const Project = ({ repo, loading, github, googleAnalytics }) => {
+const Project = ({
+  title = 'GitHub Projects',
+  seeAllLabel = 'See all',
+  repo,
+  loading,
+  github,
+  googleAnalytics,
+}) => {
   if (!loading && Array.isArray(repo) && repo.length === 0) {
     return <></>;
   }
@@ -18,13 +25,13 @@ const Project = ({ repo, loading, github, googleAnalytics }) => {
             <div>
               <div className="flex items-center">
                 <span>
-                  <h5 className="card-title text-lg">
+                  <h2 className="card-title text-lg">
                     {skeleton({
                       width: 'w-32',
                       height: 'h-8',
                       className: 'mb-1',
                     })}
-                  </h5>
+                  </h2>
                 </span>
               </div>
               <div className="mb-5 mt-1">
@@ -62,7 +69,7 @@ const Project = ({ repo, loading, github, googleAnalytics }) => {
   const renderProjects = () => {
     return repo.map((item, index) => (
       <a
-        className="card shadow-lg compact bg-base-100 cursor-pointer"
+        className="card shadow-lg compact bg-base-100 cursor-pointer min-w-0 break-words"
         href={item.html_url}
         key={index}
         onClick={(e) => {
@@ -130,15 +137,15 @@ const Project = ({ repo, loading, github, googleAnalytics }) => {
             <div className="card compact bg-base-100 shadow bg-opacity-40">
               <div className="card-body">
                 <div className="mx-3 flex items-center justify-between mb-2">
-                  <h5 className="card-title">
+                  <h2 className="card-title">
                     {loading ? (
                       skeleton({ width: 'w-40', height: 'h-8' })
                     ) : (
                       <span className="text-base-content opacity-70">
-                        GitHub Projects
+                        {title}
                       </span>
                     )}
-                  </h5>
+                  </h2>
                   {loading ? (
                     skeleton({ width: 'w-10', height: 'h-5' })
                   ) : (
@@ -148,7 +155,7 @@ const Project = ({ repo, loading, github, googleAnalytics }) => {
                       rel="noreferrer"
                       className="text-base-content opacity-50 hover:underline"
                     >
-                      See All
+                      {seeAllLabel}
                     </a>
                   )}
                 </div>
@@ -167,6 +174,8 @@ const Project = ({ repo, loading, github, googleAnalytics }) => {
 };
 
 Project.propTypes = {
+  title: PropTypes.string,
+  seeAllLabel: PropTypes.string,
   repo: PropTypes.array,
   loading: PropTypes.bool.isRequired,
   github: PropTypes.object.isRequired,

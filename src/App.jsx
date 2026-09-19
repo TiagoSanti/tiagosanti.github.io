@@ -7,7 +7,7 @@ import LanguageSwitcher from './components/language-switcher/LanguageSwitcher';
 function App() {
   const [currentLang, setCurrentLang] = useState(() => {
     const savedLang = localStorage.getItem('preferred-language');
-    return savedLang || 'en';
+    return savedLang === 'pt' ? 'pt' : 'en';
   });
 
   const [config, setConfig] = useState(() => {
@@ -24,14 +24,14 @@ function App() {
   }, []);
 
   return (
-    <GitProfile 
-      config={config} 
+    <GitProfile
+      config={config}
       languageSwitcher={
-        <LanguageSwitcher 
+        <LanguageSwitcher
           currentLang={currentLang}
-          onLanguageChange={handleLanguageChange} 
+          onLanguageChange={handleLanguageChange}
         />
-      } 
+      }
     />
   );
 }

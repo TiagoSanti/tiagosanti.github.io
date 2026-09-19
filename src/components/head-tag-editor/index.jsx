@@ -3,11 +3,18 @@ import { Helmet } from 'react-helmet-async';
 import PropTypes from 'prop-types';
 import { isDarkishTheme } from '../../helpers/utils';
 
-const HeadTagEditor = ({ profile, theme, googleAnalytics, social }) => {
+const HeadTagEditor = ({
+  profile,
+  theme,
+  googleAnalytics,
+  social,
+  language = 'en',
+}) => {
   return (
     <Fragment>
       {profile && (
         <Helmet>
+          <html lang={language === 'pt' ? 'pt-BR' : 'en-US'} />
           {googleAnalytics?.id && (
             <script
               async
@@ -22,7 +29,9 @@ const HeadTagEditor = ({ profile, theme, googleAnalytics, social }) => {
                 gtag('config', '${googleAnalytics.id}');`}
             </script>
           )}
-          <title>Portfolio{profile.name && ` of ${profile.name}`}</title>
+          <title>
+            {language === 'pt' ? 'Portfólio' : 'Portfolio'} | {profile.name}
+          </title>
           <meta
             name="theme-color"
             content={isDarkishTheme(theme) ? '#000000' : '#ffffff'}
@@ -60,6 +69,7 @@ const HeadTagEditor = ({ profile, theme, googleAnalytics, social }) => {
 };
 
 HeadTagEditor.propTypes = {
+  language: PropTypes.string,
   profile: PropTypes.object,
   theme: PropTypes.string,
   googleAnalytics: PropTypes.object.isRequired,

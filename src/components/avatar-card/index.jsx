@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { fallbackImage, skeleton } from '../../helpers/utils';
 import LazyImage from '../lazy-image';
 
-const AvatarCard = ({ profile, loading, avatarRing, resume }) => {
+const AvatarCard = ({ profile, loading, avatarRing, resume, lattes }) => {
   return (
     <div className="card shadow-lg compact bg-base-100">
       <div className="grid place-items-center py-8">
@@ -40,7 +40,7 @@ const AvatarCard = ({ profile, loading, avatarRing, resume }) => {
           </div>
         )}
         <div className="text-center mx-auto px-8">
-          <h5 className="font-bold text-2xl">
+          <h1 className="font-bold text-2xl">
             {loading || !profile ? (
               skeleton({ width: 'w-48', height: 'h-8' })
             ) : (
@@ -48,13 +48,23 @@ const AvatarCard = ({ profile, loading, avatarRing, resume }) => {
                 {profile.name}
               </span>
             )}
-          </h5>
+          </h1>
           <div className="mt-3 text-base-content text-opacity-60 font-mono">
             {loading || !profile
               ? skeleton({ width: 'w-48', height: 'h-5' })
               : profile.bio}
           </div>
         </div>
+        {lattes && (
+          <a
+            href={lattes}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-primary btn-sm mt-6"
+          >
+            Currículo Lattes
+          </a>
+        )}
         {resume?.fileUrl &&
           (loading ? (
             <div className="mt-6">
@@ -77,6 +87,8 @@ const AvatarCard = ({ profile, loading, avatarRing, resume }) => {
 };
 
 AvatarCard.propTypes = {
+  lattes: PropTypes.string,
+  language: PropTypes.string,
   profile: PropTypes.object,
   loading: PropTypes.bool.isRequired,
   avatarRing: PropTypes.bool.isRequired,

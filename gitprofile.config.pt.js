@@ -1,6 +1,40 @@
 // gitprofile.config.pt.js
 
 const config = {
+  language: 'pt',
+  profile: {
+    name: 'Tiago Santi',
+    bio: 'Pesquisador em Machine Learning | Mestrando em Ciência da Computação na UFMS | Engenheiro de Software',
+    about:
+      'Minha trajetória combina pesquisa em Machine Learning e desenvolvimento de software. No mestrado em Ciência da Computação da UFMS, com bolsa CAPES e atuação acadêmica junto ao Laboratório de Inteligência Artificial (LIA), investigo como redes neurais podem aprender novas classes sem perder conhecimento anterior. Meus interesses incluem Aprendizado Contínuo, aprendizado de representações e de métricas, Deep Learning e aplicações de IA apoiadas por Engenharia de Software.',
+  },
+  publications: [
+    {
+      title: 'BE T3CH: A INTELIGÊNCIA DO AMANHÃ NO CORAÇÃO DO PANTANAL',
+      authors:
+        'Vinicius Feitosa Gonçalves; Gabriel Paes Duarte Baltazar; Maria Fernanda Colombo; Kaê de Oliveira Budke; Wagner Rodrigues da Silva; Erfferson Jorge Felizardo Júnior; Rafael Tsutomu Jyoboji; Lourdes Oshiro Igarashi; Tiago Clarintino Santi; Graziela Santos de Araújo',
+      year: '2024',
+      page: '1579',
+      link: 'https://integra.ufms.br/anais-2024/',
+    },
+    {
+      title:
+        '4BANKS: PLATAFORMA DE ANÁLISE DE DADOS PARA INSTITUIÇÕES FINANCEIRAS',
+      authors:
+        'Lourdes Oshiro Igarashi; Tiago Clarintino Santi; João Pedro Santos Vareiro; Fábio Huang; Mateus Patricio Mello; Awdren de Lima Fontão',
+      year: '2023',
+      page: '1417',
+      link: 'https://integra.ufms.br/anais-2023/',
+    },
+    {
+      title:
+        'DEEP LEARNING APLICADO À MEDIÇÃO DE NÍVEL D’ÁGUA EM CÓRREGOS URBANOS A PARTIR DE IMAGENS',
+      authors: 'Tiago Clarintino Santi; José Marcato Junior',
+      year: '2022',
+      page: '501',
+      link: 'https://integra.ufms.br/anais-2022/',
+    },
+  ],
   github: {
     username: 'TiagoSanti',
     sortBy: 'stars',
@@ -24,19 +58,24 @@ const config = {
     stackoverflow: '',
     skype: '',
     telegram: '',
-    website: 'tiagosanti.github.io',
+    website: 'https://tiagosanti.github.io',
     phone: '+55 (67) 99699-6687',
     email: 'tiagosanti2009@gmail.com',
+    lattes: 'https://lattes.cnpq.br/1032420798696234',
   },
   resume: {
     fileUrl: '', // URL vazia oculta o botão de download do currículo.
   },
   skillsTitle: 'Competências',
   skills: [
-    'Aprendizagem Incremental Contínua',
+    'Aprendizado Contínuo',
+    'Aprendizado Incremental de Classes',
+    'Aprendizado de Representações e de Métricas',
+    'Pesquisa Científica',
+    'PyTorch',
     'Inglês - Avançado',
     'Português - Nativo',
-    'Python - Ciência de Dados & AM (Pandas | NumPy | Scikit-learn | PyTorch | FastAPI)',
+    'Python - Ciência de Dados & AM (Pandas | NumPy | Scikit-learn | FastAPI)',
     'Desenvolvimento de Software - C# | C | Java | JavaScript',
     'Banco de Dados & Linguagens de Consulta - SQL',
     'Controle de Versão & Colaboração - Git | GitHub',
@@ -57,59 +96,80 @@ const config = {
       from: 'Fevereiro 2025',
       to: 'Presente',
       companyLink: 'https://www.facom.ufms.br/',
-      description: 'Aplicação de conceitos em inovação tecnológica e automação de processos na advocacia pública.',
+      description:
+        'Aplicação de conceitos em inovação tecnológica e automação de processos na advocacia pública.',
     },
     {
-      company: 'Centro de Inovação SESI em Tecnologias para Saúde e Segurança do Trabalho',
+      company:
+        'Centro de Inovação SESI em Tecnologias para Saúde e Segurança do Trabalho',
       position: 'Bolsista Especialista em Desenvolvimento de Software',
       from: 'Setembro 2022',
       to: 'Dezembro 2022',
       companyLink: 'http://www.cis.sesims.com.br/',
     },
     {
-      company: 'Centro de Inovação SESI em Tecnologias para Saúde e Segurança do Trabalho',
+      company:
+        'Centro de Inovação SESI em Tecnologias para Saúde e Segurança do Trabalho',
       position: 'Estagiário em Desenvolvimento de Inteligência Artificial',
       from: 'Fevereiro 2022',
       to: 'Agosto 2022',
       companyLink: 'http://www.cis.sesims.com.br/',
     },
+    {
+      company: 'UFMS / CNPq',
+      position: 'Bolsista PIBITI — Desenvolvimento Tecnológico e Inovação',
+      from: 'Setembro 2021',
+      to: 'Agosto 2022',
+      description:
+        'Pesquisa em Deep Learning e Visão Computacional para medição de nível d’água em córregos urbanos a partir de imagens. Orientação de José Marcato Junior; dedicação de 20 horas semanais.',
+    },
   ],
   certifications: [
+    {
+      name: 'pantanal.dev — Onça Pintada: Data Science',
+      body: 'UFMS | 80 horas. Pré-processamento, visualização, agrupamento de dados e detecção de fraude.',
+      year: '17/06/2023 - 22/07/2023',
+    },
+    {
+      name: 'pantanal.dev — Arara Azul: Machine Learning',
+      body: 'UFMS | 40 horas. Redes neurais, PyTorch, transformers e classificação de textos.',
+      year: '01/04/2023 - 20/05/2023',
+    },
     {
       name: 'Certificado de Participação no CBSoft 2023 pela Sociedade Brasileira de Computação',
       body: 'Participação no XIV Congresso Brasileiro de Software: Teoria e Prática (CBSoft 2023). O evento ocorreu de 25 a 29 de setembro em Campo Grande - MS | 40 horas totais',
       year: 'Setembro 2023',
-      link: 'https://github.com/TiagoSanti/tiagosanti.github.io/blob/main/public/pdf/XIV%20CBSoft%202023.pdf'
+      link: 'https://github.com/TiagoSanti/tiagosanti.github.io/blob/main/public/pdf/XIV%20CBSoft%202023.pdf',
     },
     {
       name: 'C# Completo Programação Orientada a Objetos + Projetos',
       body: 'Instrutor Nelio Alves | 38 horas totais',
       year: 'Maio 2022',
-      link: 'https://www.udemy.com/certificate/UC-dbde52cc-9a5e-49a7-a4d5-b3c3eed256a7/'
+      link: 'https://www.udemy.com/certificate/UC-f9d96d36-677f-4db4-b786-6320c65d23b2/',
     },
     {
       name: 'Bolsa de Desenvolvimento Tecnológico e Inovação (PIBITI)',
       body: 'Projeto "Deep Learning Aplicado à Medição do Nível da Água em Córregos Urbanos Usando Imagens" | Universidade Federal de Mato Grosso do Sul | 1.040 horas totais',
-      year: 'Julho 2021 - Agosto 2022',
-      link: 'https://github.com/TiagoSanti/tiagosanti.github.io/blob/main/public/pdf/PIBITI%20-%20Deep%20Learning.pdf'
+      year: 'Setembro 2021 - Agosto 2022',
+      link: 'https://github.com/TiagoSanti/tiagosanti.github.io/blob/main/public/pdf/PIBITI%20-%20Deep%20Learning.pdf',
     },
     {
       name: 'Redes Neurais Artificiais em Python',
       body: 'Instrutor Jones Granatyr, IA Expert Academy | 8,5 horas totais',
       year: 'Julho 2021',
-      link: 'https://www.udemy.com/certificate/UC-dbde52cc-9a5e-49a7-a4d5-b3c3eed256a7/'
+      link: '/pdf/Artificial%20Neural%20Networks%20in%20Python.pdf',
     },
     {
       name: 'Mini Curso de Arduino',
       body: 'Desenvolvimento de Atividades de Orientação e Capacitação em Sistemas de Computação na Universidade Federal de Mato Grosso do Sul | 30 horas totais',
       year: 'Julho 2019',
-      link: 'https://github.com/TiagoSanti/tiagosanti.github.io/blob/main/public/pdf/Arduino%20Mini%20Course.pdf'
+      link: 'https://github.com/TiagoSanti/tiagosanti.github.io/blob/main/public/pdf/Arduino%20Mini%20Course.pdf',
     },
     {
       name: 'Menção Honrosa Nível 3 - Olimpíada Brasileira de Matemática das Escolas Públicas',
       body: 'Ministério da Educação, Tecnologia e Inovação',
       year: 'Dezembro 2018',
-      link: 'http://premiacao.obmep.org.br/2018/verRelatorioPremiadosMencao-MS.3.privada.do.htm'
+      link: 'http://premiacao.obmep.org.br/2018/verRelatorioPremiadosMencao-MS.3.privada.do.htm',
     },
   ],
   education: [
@@ -118,6 +178,8 @@ const config = {
       degree: 'Mestrado em Ciência da Computação',
       from: '2025',
       to: 'Presente',
+      description:
+        'Pesquisa em Aprendizado Contínuo e Aprendizado Incremental de Classes, com inferência agnóstica à tarefa. Bolsa CAPES; orientação de Edson Takashi Matsubara.',
     },
     {
       institution: 'Universidade Federal de Mato Grosso do Sul',
@@ -134,25 +196,54 @@ const config = {
   ],
   externalProjects: [
     {
-      title: '</pantanal.dev> - Módulo de Ciência de Dados | Jun/2023 - Set/2023',
+      title:
+        'Mestrado — Aprendizado Contínuo e Incremental de Classes | 2025 - Presente',
       description:
-        'O </pantanal.dev> é uma iniciativa de formação intensiva em tecnologias de ponta, visando aprimorar talentos da região Centro-Oeste do Brasil e conectar esses profissionais a oportunidades de trabalho remoto no setor financeiro nacional. A Universidade Federal de Mato Grosso do Sul lidera o programa, em parceria com empresas renomadas como B3, PDtec, BLK e Neoway. Neste módulo, o desafio proposto foi detectar fraudes em cartões de crédito usando técnicas estatísticas e, com base nesses insights, criar um produto que contribuísse para a solução desse problema. Iniciamos com uma pesquisa de mercado aprofundada, buscando entender as necessidades, objetivos e o nível de satisfação dos profissionais do setor com as ferramentas disponíveis. Em seguida, realizamos dinâmicas para alinhar expectativas em relação ao projeto e moldar a visão do produto. Estabelecemos metas claras, atividades a serem realizadas, modelamos o processo de negócio e estabelecemos padrões rigorosos de desenvolvimento. O resultado foi o "4banks", uma plataforma de análise de dados projetada para atender cientistas de dados focados na detecção de fraudes em entidades financeiras. Através do 4banks, os usuários têm a capacidade de explorar dados de transações com cartão de crédito, obtendo desde análises gerais até insights mais profundos e específicos. Ao integrar sólidos princípios de Engenharia de Software em cada etapa do projeto, conseguimos entregar um excelente produto, de forma ágil e eficiente, alinhado com as melhores práticas do mercado. Esse compromisso com a qualidade foi crucial para alcançarmos a vitória neste módulo.',
+        'Investigo como aprender novas classes e reter conhecimento anterior sem receber a identidade da tarefa durante a inferência. A pesquisa explora aprendizado de representações e de métricas para mitigar o esquecimento catastrófico. A intervenção ANT (Avoid Non-essential Tuning) introduz um termo auxiliar de margem nas similaridades negativas da InfoNCE, tendo TagFex como base experimental. A avaliação em CIFAR-100 e Tiny-ImageNet é preliminar: os efeitos dependem do protocolo e da configuração, sem conclusão geral de superioridade.',
+      link: 'https://lattes.cnpq.br/1032420798696234',
+      linkLabel: 'Contexto acadêmico no Lattes',
+    },
+    {
+      title: '4banks — Ciência de Dados | pantanal.dev, 2023',
+      description:
+        'Coautor de uma plataforma de análise de dados de transações de cartão de crédito, voltada a equipes de detecção de fraudes em instituições financeiras. O projeto integra processamento, transformação, análise e visualização de dados em pipelines configuráveis. Desenvolvido no contexto do módulo Onça Pintada do pantanal.dev, com resumo publicado no Integra UFMS 2023.',
       imageUrl: '',
       link: 'https://github.com/4Banks',
+      details:
+        'O </pantanal.dev> é uma iniciativa de formação intensiva em tecnologias de ponta, visando aprimorar talentos da região Centro-Oeste do Brasil e conectar esses profissionais a oportunidades de trabalho remoto no setor financeiro nacional. A Universidade Federal de Mato Grosso do Sul lidera o programa, em parceria com empresas renomadas como B3, PDtec, BLK e Neoway. Neste módulo, o desafio proposto foi detectar fraudes em cartões de crédito usando técnicas estatísticas e, com base nesses insights, criar um produto que contribuísse para a solução desse problema. Iniciamos com uma pesquisa de mercado aprofundada, buscando entender as necessidades, objetivos e o nível de satisfação dos profissionais do setor com as ferramentas disponíveis. Em seguida, realizamos dinâmicas para alinhar expectativas em relação ao projeto e moldar a visão do produto. Estabelecemos metas claras, atividades a serem realizadas, modelamos o processo de negócio e estabelecemos padrões rigorosos de desenvolvimento. O resultado foi o "4banks", uma plataforma de análise de dados projetada para atender cientistas de dados focados na detecção de fraudes em entidades financeiras. Através do 4banks, os usuários têm a capacidade de explorar dados de transações com cartão de crédito, obtendo desde análises gerais até insights mais profundos e específicos. Ao integrar sólidos princípios de Engenharia de Software em cada etapa do projeto, conseguimos entregar um excelente produto, de forma ágil e eficiente, alinhado com as melhores práticas do mercado. Esse compromisso com a qualidade foi crucial para alcançarmos a vitória neste módulo.',
     },
     {
-      title: '</pantanal.dev> - Módulo de Aprendizado de Máquina | Abr/2023 - Jun/2023',
+      title: 'Tuiaia — Machine Learning e PLN | pantanal.dev, 2023',
       description:
-        'O </pantanal.dev> é uma iniciativa de formação intensiva em tecnologias de ponta, visando aprimorar talentos da região Centro-Oeste do Brasil e conectar esses profissionais a oportunidades de trabalho remoto no setor financeiro nacional. A Universidade Federal de Mato Grosso do Sul lidera o programa, em parceria com empresas renomadas como B3, PDtec, BLK e Neoway. No primeiro módulo, os participantes foram desafiados a empregar técnicas avançadas de Processamento de Linguagem Natural. O objetivo era treinar um classificador de sentimentos e criar um produto capaz de analisar o sentimento presente em notícias do mercado financeiro. Sob a orientação de um especialista da B3, minha equipe desenvolveu o "Tuiaia". Esta plataforma reúne informações de fontes financeiras respeitadas, como Google News, InfoMoney e Forbes, e avalia o sentimento das notícias, classificando-as como negativas, neutras ou positivas. Visando inovar e elevar o padrão do nosso produto, incorporamos a análise do grau de impacto das notícias (baixo, neutro, alto) e a duração estimada desse impacto (curto, neutro, longo). Além disso, projetamos um dashboard interativo que exibe os resultados das análises ao longo do tempo. Em reconhecimento à sua importância e inovação, o projeto recebeu Menção Honrosa.',
+        'Projeto em equipe desenvolvido no módulo Arara Azul do pantanal.dev, aplicando Processamento de Linguagem Natural à análise de sentimentos de notícias do mercado financeiro. A plataforma combina classificação de textos e apresentação dos resultados em um dashboard. O projeto Tuiaia recebeu menção honrosa.',
       imageUrl: '',
       link: 'https://github.com/Tuiaia',
+      details:
+        'O </pantanal.dev> é uma iniciativa de formação intensiva em tecnologias de ponta, visando aprimorar talentos da região Centro-Oeste do Brasil e conectar esses profissionais a oportunidades de trabalho remoto no setor financeiro nacional. A Universidade Federal de Mato Grosso do Sul lidera o programa, em parceria com empresas renomadas como B3, PDtec, BLK e Neoway. No primeiro módulo, os participantes foram desafiados a empregar técnicas avançadas de Processamento de Linguagem Natural. O objetivo era treinar um classificador de sentimentos e criar um produto capaz de analisar o sentimento presente em notícias do mercado financeiro. Sob a orientação de um especialista da B3, minha equipe desenvolveu o "Tuiaia". Esta plataforma reúne informações de fontes financeiras respeitadas, como Google News, InfoMoney e Forbes, e avalia o sentimento das notícias, classificando-as como negativas, neutras ou positivas. Visando inovar e elevar o padrão do nosso produto, incorporamos a análise do grau de impacto das notícias (baixo, neutro, alto) e a duração estimada desse impacto (curto, neutro, longo). Além disso, projetamos um dashboard interativo que exibe os resultados das análises ao longo do tempo. Em reconhecimento à sua importância e inovação, o projeto recebeu Menção Honrosa.',
     },
     {
-      title: 'Iniciação Científica - Deep Learning Aplicado à Medição do Nível da Água em Córregos Urbanos Usando Imagens | Jul/2021 - Ago/2022',
+      title:
+        'PIBITI — Visão Computacional para monitoramento de córregos | Set/2021 - Ago/2022',
       description:
-        'As inundações são um dos fenômenos naturais mais perigosos (WMO, 2011), causando danos econômicos, sociais e à saúde. A ocorrência desse fenômeno aumentou significativamente nos últimos 20 anos, relacionada à rápida urbanização e às mudanças climáticas que elevam o risco de inundações, tornando essencial o monitoramento dos cursos d\'água urbanos. Este projeto propõe medir o nível da água em córregos urbanos usando câmeras de segurança e algoritmos de deep learning. Para atingir esse objetivo, redes neurais convolucionais, uma classe de redes neurais artificiais na área de deep learning, têm sido amplamente aplicadas no processamento de imagens com sucesso, e, portanto, foram a ferramenta essencial para os resultados obtidos até agora. Neste estudo, utilizamos o método de detecção de objetos YOLOv5, que permite resultados rápidos, o que é crucial em situações de inundação. Combinada com um banco de dados de imagens rotuladas com níveis de água, uma rede neural convolucional foi treinada para prever a localização gráfica da altura do curso d\'água. Nas imagens de teste, foi alcançado um F-score de 0,996 considerando um AP50. Espera-se que os resultados possam ser utilizados para a construção de sistemas de monitoramento e alerta de inundações de baixo custo, dado que os equipamentos tradicionalmente utilizados para medição do nível da água requerem uma instalação arriscada localizada no curso d\'água e também apresentam risco de perda desses dispositivos custosos durante um evento severo de inundação. Além disso, as imagens coletadas podem fornecer informações tanto quantitativas quanto qualitativas sobre o curso d\'água monitorado e seu entorno para diversos fins, como defesa civil.',
+        'Pesquisa PIBITI/CNPq sobre medição de nível d’água a partir de imagens de câmeras, sob orientação de José Marcato Junior. O trabalho utilizou YOLOv5 e imagens rotuladas para localizar o nível da água, explorando alternativas de monitoramento de baixo custo. Resumo publicado no Integra UFMS 2022.',
       imageUrl: '/object-detection.png',
       link: 'https://www.youtube.com/watch?v=-DES1Fr1B-c',
+      details:
+        "As inundações são um dos fenômenos naturais mais perigosos (WMO, 2011), causando danos econômicos, sociais e à saúde. A ocorrência desse fenômeno aumentou significativamente nos últimos 20 anos, relacionada à rápida urbanização e às mudanças climáticas que elevam o risco de inundações, tornando essencial o monitoramento dos cursos d'água urbanos. Este projeto propõe medir o nível da água em córregos urbanos usando câmeras de segurança e algoritmos de deep learning. Para atingir esse objetivo, redes neurais convolucionais, uma classe de redes neurais artificiais na área de deep learning, têm sido amplamente aplicadas no processamento de imagens com sucesso, e, portanto, foram a ferramenta essencial para os resultados obtidos até agora. Neste estudo, utilizamos o método de detecção de objetos YOLOv5, que permite resultados rápidos, o que é crucial em situações de inundação. Combinada com um banco de dados de imagens rotuladas com níveis de água, uma rede neural convolucional foi treinada para prever a localização gráfica da altura do curso d'água. Nas imagens de teste, foi alcançado um F-score de 0,996 considerando um AP50. Espera-se que os resultados possam ser utilizados para a construção de sistemas de monitoramento e alerta de inundações de baixo custo, dado que os equipamentos tradicionalmente utilizados para medição do nível da água requerem uma instalação arriscada localizada no curso d'água e também apresentam risco de perda desses dispositivos custosos durante um evento severo de inundação. Além disso, as imagens coletadas podem fornecer informações tanto quantitativas quanto qualitativas sobre o curso d'água monitorado e seu entorno para diversos fins, como defesa civil.",
+    },
+    {
+      title: 'Online Evidence Grabber | 2024',
+      description:
+        'Coautor de software em Python para coleta e organização de evidências digitais disponíveis na Web, apoiando sua documentação e análise. Programa de computador registrado no INPI sob BR512024002737-8, com certificado expedido em 06/08/2024; titularidade da UFMS.',
+      link: 'https://lattes.cnpq.br/1032420798696234',
+      linkLabel: 'Registro descrito no Lattes',
+    },
+    {
+      title: 'Sistema Operacional Academia Escola (SOAE) | 2024',
+      description:
+        'Coautor de um sistema web para gestão de processos acadêmicos e administrativos de uma academia escola, centralizando alunos, profissionais, atividades e atendimentos. Desenvolvido em JavaScript e PHP. Programa de computador registrado no INPI sob BR512024005131-7, com certificado expedido em 31/12/2024; titularidade da UFMS.',
+      link: 'https://lattes.cnpq.br/1032420798696234',
+      linkLabel: 'Registro descrito no Lattes',
     },
   ],
   blog: {
@@ -217,4 +308,4 @@ const config = {
   footer: `Feito com <a class="text-primary" href="https://github.com/arifszn/gitprofile" target="_blank" rel="noreferrer">GitProfile</a> | Ícones de objetos criados por <a class="text-primary" href="https://www.flaticon.com/free-icons/object" title="object icons"> juicy_fish - Flaticon</a>`,
 };
 
-export default config; 
+export default config;
