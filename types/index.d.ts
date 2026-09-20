@@ -271,7 +271,13 @@ export interface Resume {
 
 export interface Config {
   language?: 'pt' | 'en';
-  profile?: { name?: string; bio?: string; about?: string; location?: string };
+  profile?: {
+    name?: string;
+    displayName?: string;
+    bio?: string;
+    about?: string;
+    location?: string;
+  };
   publications?: Array<{
     title: string;
     authors: string;

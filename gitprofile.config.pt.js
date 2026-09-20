@@ -4,6 +4,7 @@ const config = {
   language: 'pt',
   profile: {
     name: 'Tiago Santi',
+    displayName: 'Tiago C. Santi',
     location: 'Campo Grande, MS, Brasil',
     bio: 'Pesquisador em Machine Learning | Mestrando em Ciência da Computação na UFMS | Engenheiro de Software',
     about:
@@ -264,7 +265,6 @@ const config = {
         'PIBITI — Visão Computacional para monitoramento de córregos | Set/2021 - Ago/2022',
       description:
         'Pesquisa PIBITI/CNPq sobre medição de nível d’água a partir de imagens de câmeras, sob orientação de José Marcato Junior. O trabalho utilizou YOLOv5 e imagens rotuladas para localizar o nível da água, explorando alternativas de monitoramento de baixo custo. Resumo publicado no Integra UFMS 2022.',
-      imageUrl: '/object-detection.png',
       link: 'https://www.youtube.com/watch?v=-DES1Fr1B-c',
       details:
         "As inundações são um dos fenômenos naturais mais perigosos (WMO, 2011), causando danos econômicos, sociais e à saúde. A ocorrência desse fenômeno aumentou significativamente nos últimos 20 anos, relacionada à rápida urbanização e às mudanças climáticas que elevam o risco de inundações, tornando essencial o monitoramento dos cursos d'água urbanos. Este projeto propõe medir o nível da água em córregos urbanos usando câmeras de segurança e algoritmos de deep learning. Para atingir esse objetivo, redes neurais convolucionais, uma classe de redes neurais artificiais na área de deep learning, têm sido amplamente aplicadas no processamento de imagens com sucesso, e, portanto, foram a ferramenta essencial para os resultados obtidos até agora. Neste estudo, utilizamos o método de detecção de objetos YOLOv5, que permite resultados rápidos, o que é crucial em situações de inundação. Combinada com um banco de dados de imagens rotuladas com níveis de água, uma rede neural convolucional foi treinada para prever a localização gráfica da altura do curso d'água. Nas imagens de teste, foi alcançado um F-score de 0,996 considerando um AP50. Espera-se que os resultados possam ser utilizados para a construção de sistemas de monitoramento e alerta de inundações de baixo custo, dado que os equipamentos tradicionalmente utilizados para medição do nível da água requerem uma instalação arriscada localizada no curso d'água e também apresentam risco de perda desses dispositivos custosos durante um evento severo de inundação. Além disso, as imagens coletadas podem fornecer informações tanto quantitativas quanto qualitativas sobre o curso d'água monitorado e seu entorno para diversos fins, como defesa civil.",

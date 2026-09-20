@@ -35,7 +35,7 @@ const AvatarCard = ({
               {
                 <LazyImage
                   src={profile.avatar ? profile.avatar : fallbackImage}
-                  alt={profile.name}
+                  alt={profile.displayName || profile.name}
                   placeholder={skeleton({
                     width: 'w-full',
                     height: 'h-full',
@@ -52,7 +52,7 @@ const AvatarCard = ({
               skeleton({ width: 'w-48', height: 'h-8' })
             ) : (
               <span className="text-base-content opacity-70">
-                {profile.name}
+                {profile.displayName || profile.name}
               </span>
             )}
           </h1>

@@ -4,6 +4,7 @@ const config = {
   language: 'en',
   profile: {
     name: 'Tiago Santi',
+    displayName: 'Tiago C. Santi',
     location: 'Campo Grande, MS, Brazil',
     bio: 'Machine Learning Researcher | MSc Student in Computer Science at UFMS | Software Engineer',
     about:
@@ -265,7 +266,6 @@ const config = {
         'PIBITI — Computer Vision for stream monitoring | Sep/2021 - Aug/2022',
       description:
         'PIBITI/CNPq research on image-based water-level measurement using cameras, advised by José Marcato Junior. The work used YOLOv5 and labeled images to locate the water level, exploring low-cost monitoring alternatives. An abstract was published in the Integra UFMS 2022 proceedings.',
-      imageUrl: '/object-detection.png',
       link: 'https://www.youtube.com/watch?v=-DES1Fr1B-c',
       details:
         "Flooding is one of the most dangerous natural phenomena (WMO, 2011), causing economic, social, and health damages. The occurrence of this phenomenon has significantly increased in the last 20 years, related to rapid urbanization and climate changes that heighten the risk of floods, thus making it essential to monitor urban watercourses. This project proposes measuring the water level in urban streams using security cameras and deep learning algorithms. To achieve this goal, convolutional neural networks, a class of artificial neural networks in the deep learning area, have been widely applied in image processing with success, and therefore were the essential tool for the results obtained so far. In this study, we used the YOLOv5 object detection method, which allows for quick results, which is crucial in flood situations. Combined with a database of images labeled with water levels, a convolutional neural network was trained to predict the graphical location of the watercourse's height. In the test images, an F-score of 0.996 was achieved considering an AP50. It is hoped that the results can be used for the construction of low-cost monitoring and flood warning systems, given that the equipment traditionally used for water level measurement requires a risky installation located in the watercourse and also presents a risk of losing these costly devices during a severe flooding event. Moreover, the collected images can provide both quantitative and qualitative information about the monitored watercourse and its surroundings for various purposes, such as civil defense.",
