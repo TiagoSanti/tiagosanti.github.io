@@ -50,7 +50,9 @@ const ExternalProject = ({
                             ? 'Contexto e detalhes do projeto'
                             : 'Project context and details'}
                         </summary>
-                        <p className="mt-2 leading-relaxed">{item.details}</p>
+                        <p className="mt-2 leading-relaxed whitespace-pre-line">
+                          {item.details}
+                        </p>
                       </details>
                     )}
                     {item.link && (
