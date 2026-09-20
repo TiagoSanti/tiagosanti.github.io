@@ -9,6 +9,10 @@ export interface Github {
    * GitHub org/user name
    */
   username: string;
+  /** Automatic search or up to five repositories in the specified order. */
+  mode?: 'automatic' | 'manual';
+  /** Full owner/repository names; also supports organization repositories. */
+  manualProjects?: Array<string>;
 
   /**
    * stars | updated

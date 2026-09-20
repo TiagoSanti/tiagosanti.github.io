@@ -140,6 +140,19 @@ export const sanitizeConfig = (config) => {
     publications: config?.publications || [],
     github: {
       username: config?.github?.username || '',
+      mode: config?.github?.mode === 'manual' ? 'manual' : 'automatic',
+      manualProjects: Array.isArray(config?.github?.manualProjects)
+        ? [
+            ...new Set(
+              config.github.manualProjects
+                .filter(
+                  (name) =>
+                    typeof name === 'string' && /^[\w.-]+\/[\w.-]+$/.test(name)
+                )
+                .map((name) => name.toLowerCase())
+            ),
+          ].slice(0, 5)
+        : [],
       sortBy: config?.github?.sortBy || 'stars',
       limit: config?.github?.limit || 8,
       exclude: {

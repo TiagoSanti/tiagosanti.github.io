@@ -36,6 +36,8 @@ const config = {
     },
   ],
   github: {
+    mode: 'automatic', // Use 'manual' to select up to five owner/repository names.
+    manualProjects: [], // Display order; keep aligned with the English config.
     username: 'TiagoSanti',
     sortBy: 'stars',
     limit: 8,

@@ -38,6 +38,17 @@ npm ci
 npm run dev
 ```
 
+### Portfolio configuration
+
+Keep `gitprofile.config.js` and `gitprofile.config.pt.js` aligned. GitHub projects
+default to automatic selection. For curated cards, set `github.mode` to `manual`
+and add up to five full `owner/repository` names to `github.manualProjects`, in
+display order. Organization repositories and forks are supported; unavailable
+repositories are omitted. An empty manual list hides repository cards.
+
+The build generates static search/social metadata from the English profile;
+React updates metadata when the visitor changes language.
+
 ### Linter
 
 Run `npm test`, `npm run lint`, `npm run prettier`, and `npm run build`

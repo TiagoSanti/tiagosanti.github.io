@@ -4,6 +4,8 @@ import tailwind from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
 import tailwindConfig from './tailwind.config.mjs';
 import { VitePWA } from 'vite-plugin-pwa';
+import config from './gitprofile.config.js';
+import { staticSEO } from './build/seo.mjs';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -13,6 +15,7 @@ export default defineConfig({
 
   base: '/',
   plugins: [
+    staticSEO(config),
     react(),
     VitePWA({
       registerType: 'autoUpdate',

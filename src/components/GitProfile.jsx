@@ -24,7 +24,12 @@ import {
 import { HelmetProvider } from 'react-helmet-async';
 import PropTypes from 'prop-types';
 import '../assets/index.css';
-import { getGithubErrorDetails, isValidConfig } from '../helpers/github.mjs';
+import {
+  getGithubErrorDetails,
+  isValidConfig,
+  getRepositoryParams,
+  orderRepositories,
+} from '../helpers/github.mjs';
 import ExternalProject from './external-project';
 import { AiOutlineControl } from 'react-icons/ai';
 
@@ -58,6 +63,8 @@ const GitProfileContent = ({ config, languageSwitcher }) => {
   const [profile, setProfile] = useState(null);
   const [repo, setRepo] = useState([]);
   const { username, sortBy, limit } = sanitizedConfig.github;
+  const { mode } = sanitizedConfig.github;
+  const manualProjects = JSON.stringify(sanitizedConfig.github.manualProjects);
   const excludeForks = sanitizedConfig.github.exclude.forks;
   const excludedProjects = JSON.stringify(
     sanitizedConfig.github.exclude.projects
@@ -88,31 +95,30 @@ const GitProfileContent = ({ config, languageSwitcher }) => {
           location: data.location || '',
           company: data.company || '',
         });
-        if (!data.public_repos) {
+        const github = {
+          username,
+          sortBy,
+          limit,
+          mode,
+          manualProjects: JSON.parse(manualProjects),
+          exclude: {
+            forks: excludeForks,
+            projects: JSON.parse(excludedProjects),
+          },
+        };
+        const params = getRepositoryParams(github, data.public_repos);
+        if (!params) {
           setRepo([]);
           return;
         }
-        const excluded = JSON.parse(excludedProjects).map(
-          (name) => '-repo:' + username + '/' + name
-        );
-        const query = [
-          'user:' + username,
-          'fork:' + !excludeForks,
-          ...excluded,
-        ].join(' ');
         const response = await axios.get(
           'https://api.github.com/search/repositories',
           {
             signal: controller.signal,
-            params: {
-              q: query,
-              sort: sortBy,
-              per_page: limit,
-              type: 'Repositories',
-            },
+            params,
           }
         );
-        setRepo(response.data.items);
+        setRepo(orderRepositories(response.data.items, github));
       } catch (failure) {
         if (controller.signal.aborted) return;
         const details = getGithubErrorDetails(failure);
@@ -129,7 +135,15 @@ const GitProfileContent = ({ config, languageSwitcher }) => {
     };
     loadData();
     return () => controller.abort();
-  }, [username, sortBy, limit, excludeForks, excludedProjects]);
+  }, [
+    username,
+    sortBy,
+    limit,
+    excludeForks,
+    excludedProjects,
+    mode,
+    manualProjects,
+  ]);
 
   const displayProfile = profile
     ? { ...profile, ...sanitizedConfig.profile }
@@ -341,6 +355,8 @@ GitProfile.propTypes = {
     publications: PropTypes.array,
     github: PropTypes.shape({
       username: PropTypes.string.isRequired,
+      mode: PropTypes.oneOf(['automatic', 'manual']),
+      manualProjects: PropTypes.arrayOf(PropTypes.string),
       sortBy: PropTypes.oneOf(['stars', 'updated']),
       limit: PropTypes.number,
       exclude: PropTypes.shape({
