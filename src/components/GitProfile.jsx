@@ -253,11 +253,10 @@ const GitProfileContent = ({ config, languageSwitcher }) => {
                         github={sanitizedConfig.github}
                         social={sanitizedConfig.social}
                       />
-                      <Skill
-                        title={pt ? 'Competências' : 'Skills'}
+                      <Education
+                        title={pt ? 'Formação acadêmica' : 'Education'}
                         loading={loading}
-                        skills={sanitizedConfig.skills}
-                        groups={sanitizedConfig.skillGroups}
+                        education={sanitizedConfig.education}
                       />
                       <Experience
                         title={
@@ -268,10 +267,11 @@ const GitProfileContent = ({ config, languageSwitcher }) => {
                         loading={loading}
                         experiences={sanitizedConfig.experiences}
                       />
-                      <Education
-                        title={pt ? 'Formação acadêmica' : 'Education'}
+                      <Skill
+                        title={pt ? 'Competências' : 'Skills'}
                         loading={loading}
-                        education={sanitizedConfig.education}
+                        skills={sanitizedConfig.skills}
+                        groups={sanitizedConfig.skillGroups}
                       />
                       <Certification
                         title={

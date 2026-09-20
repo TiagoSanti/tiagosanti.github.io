@@ -129,7 +129,7 @@ const config = {
       company: 'LEDES - Software Engineering Laboratory',
       position: 'Artificial Intelligence Engineer — Scholarship Holder',
       from: 'February 2025',
-      to: 'Present',
+      to: 'July 2026',
       companyLink: 'https://www.facom.ufms.br/laboratorios/',
       description:
         'Applied technological innovation and process automation for public-sector legal services.',

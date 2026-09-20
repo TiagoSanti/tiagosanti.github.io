@@ -129,7 +129,7 @@ const config = {
       company: 'LEDES - Laboratório de Engenharia de Software',
       position: 'Engenheiro de Inteligência Artificial - Bolsista',
       from: 'Fevereiro 2025',
-      to: 'Presente',
+      to: 'Julho 2026',
       companyLink: 'https://www.facom.ufms.br/laboratorios/',
       description:
         'Aplicação de conceitos em inovação tecnológica e automação de processos na advocacia pública.',
