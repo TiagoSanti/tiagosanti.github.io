@@ -257,6 +257,7 @@ const GitProfileContent = ({ config, languageSwitcher }) => {
                         title={pt ? 'Competências' : 'Skills'}
                         loading={loading}
                         skills={sanitizedConfig.skills}
+                        groups={sanitizedConfig.skillGroups}
                       />
                       <Experience
                         title={
@@ -387,6 +388,12 @@ GitProfile.propTypes = {
       fileUrl: PropTypes.string,
     }),
     skills: PropTypes.array,
+    skillGroups: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        items: PropTypes.arrayOf(PropTypes.string).isRequired,
+      })
+    ),
     externalProjects: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string.isRequired,

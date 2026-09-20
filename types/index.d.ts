@@ -297,6 +297,7 @@ export interface Config {
    * Skill list
    */
   skills?: Array<string>;
+  skillGroups?: Array<{ title: string; items: Array<string> }>;
 
   /**
    * Experience list

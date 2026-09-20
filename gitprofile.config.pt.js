@@ -68,28 +68,61 @@ const config = {
   resume: {
     fileUrl: '', // URL vazia oculta o botão de download do currículo.
   },
-  skillsTitle: 'Competências',
-  skills: [
-    'Aprendizado Contínuo',
-    'Aprendizado Incremental de Classes',
-    'Aprendizado de Representações e de Métricas',
-    'Pesquisa Científica',
-    'PyTorch',
-    'Inglês - Avançado',
-    'Português - Nativo',
-    'Python - Ciência de Dados & AM (Pandas | NumPy | Scikit-learn | FastAPI)',
-    'Desenvolvimento de Software - C# | C | Java | JavaScript',
-    'Banco de Dados & Linguagens de Consulta - SQL',
-    'Controle de Versão & Colaboração - Git | GitHub',
-    'DevOps & Containerização - Docker',
-    'Gestão de Projetos - Scrum | Kanban',
-    'Inteligência Artificial & Aprendizado de Máquina - AM Clássico | Aprendizado Profundo | Redes Neurais',
-    'Modelos de Linguagem Grandes (LLM) - Engenharia de Prompt | Fine-tuning | Sistemas RAG',
-    'Visão Computacional - Detecção de Objetos | Reconhecimento Facial | Processamento de Imagens',
-    'Processamento de Linguagem Natural - Análise de Sentimentos | Classificação de Texto',
-    'Engenharia de Dados - Coleta | Processamento | Análise | ETL',
-    'Computação em Nuvem - Google Cloud Platform (GCP)',
-    'Serviços em Nuvem - GCS | BigQuery | Looker Studio | Compute Engine | App Engine',
+  skillGroups: [
+    {
+      title: 'Machine Learning e Pesquisa',
+      items: [
+        'Pesquisa científica',
+        'Aprendizado de máquina clássico',
+        'Deep Learning e redes neurais',
+        'Aprendizado contínuo',
+        'Aprendizado incremental de classes',
+        'Aprendizado de representações e métricas',
+        'Aprendizado contrastivo',
+      ],
+    },
+    {
+      title: 'IA aplicada',
+      items: [
+        'Visão computacional: processamento de imagens, detecção de objetos (YOLOv5) e reconhecimento facial',
+        'PLN: análise de sentimentos e classificação de textos',
+        'LLMs: engenharia de prompt, fine-tuning e RAG',
+      ],
+    },
+    {
+      title: 'Python e Dados',
+      items: [
+        'Python',
+        'PyTorch',
+        'Hugging Face Transformers',
+        'Rastreamento de experimentos com Weights & Biases',
+        'pandas · NumPy · scikit-learn',
+        'SQL',
+        'Coleta, processamento de dados e ETL',
+        'Análise e visualização de dados',
+      ],
+    },
+    {
+      title: 'Engenharia de Software',
+      items: [
+        'C · C# · Java · JavaScript · PHP',
+        'APIs de backend com FastAPI',
+        'Git e GitHub',
+        'Docker',
+        'Scrum e Kanban',
+      ],
+    },
+    {
+      title: 'Nuvem e Analytics',
+      items: [
+        'Google Cloud: Cloud Storage (GCS), BigQuery, Compute Engine e App Engine',
+        'Looker Studio',
+      ],
+    },
+    {
+      title: 'Idiomas',
+      items: ['Português — Nativo', 'Inglês — Avançado'],
+    },
   ],
   experiences: [
     {
@@ -97,7 +130,7 @@ const config = {
       position: 'Engenheiro de Inteligência Artificial - Bolsista',
       from: 'Fevereiro 2025',
       to: 'Presente',
-      companyLink: 'https://www.facom.ufms.br/',
+      companyLink: 'https://www.facom.ufms.br/laboratorios/',
       description:
         'Aplicação de conceitos em inovação tecnológica e automação de processos na advocacia pública.',
     },
@@ -151,7 +184,7 @@ const config = {
     },
     {
       name: 'Bolsa de Desenvolvimento Tecnológico e Inovação (PIBITI)',
-      body: 'Projeto "Deep Learning Aplicado à Medição do Nível da Água em Córregos Urbanos Usando Imagens" | Universidade Federal de Mato Grosso do Sul | 1.040 horas totais',
+      body: 'Projeto "Deep Learning Aplicado à Medição do Nível da Água em Córregos Urbanos Usando Imagens" | Universidade Federal de Mato Grosso do Sul | 20 horas semanais',
       year: 'Setembro 2021 - Agosto 2022',
       link: 'https://github.com/TiagoSanti/tiagosanti.github.io/blob/main/public/pdf/PIBITI%20-%20Deep%20Learning.pdf',
     },
@@ -164,14 +197,14 @@ const config = {
     {
       name: 'Mini Curso de Arduino',
       body: 'Desenvolvimento de Atividades de Orientação e Capacitação em Sistemas de Computação na Universidade Federal de Mato Grosso do Sul | 30 horas totais',
-      year: 'Julho 2019',
+      year: 'Agosto 2018 - Julho 2019',
       link: 'https://github.com/TiagoSanti/tiagosanti.github.io/blob/main/public/pdf/Arduino%20Mini%20Course.pdf',
     },
     {
       name: 'Menção Honrosa Nível 3 - Olimpíada Brasileira de Matemática das Escolas Públicas',
-      body: 'Ministério da Educação, Tecnologia e Inovação',
-      year: 'Dezembro 2018',
-      link: 'http://premiacao.obmep.org.br/2018/verRelatorioPremiadosMencao-MS.3.privada.do.htm',
+      body: 'OBMEP 2018 | Menção honrosa no nível 3; listado entre os premiados de escolas privadas de Mato Grosso do Sul.',
+      year: '2018',
+      link: 'https://premiacao.obmep.org.br/2018/verRelatorioPremiadosMencao-MS.3.privada.do.htm',
     },
   ],
   education: [
@@ -206,7 +239,7 @@ const config = {
     {
       title: '4banks — Ciência de Dados | pantanal.dev, 2023',
       description:
-        'Coautor de uma plataforma de análise de dados de transações de cartão de crédito, voltada a equipes de detecção de fraudes em instituições financeiras. O projeto integra processamento, transformação, análise e visualização de dados em pipelines configuráveis. Desenvolvido no contexto do módulo Onça Pintada do pantanal.dev, com resumo publicado no Integra UFMS 2023.',
+        'Atuação em desenvolvimento backend, análise de dados e DevOps em uma plataforma de análise de transações de cartão de crédito, voltada a equipes de detecção de fraudes em instituições financeiras. O projeto integra processamento, transformação, análise e visualização de dados em pipelines configuráveis. Desenvolvido no contexto do módulo Onça Pintada do pantanal.dev, no qual a equipe venceu o desafio. Resumo publicado no Integra UFMS 2023.',
       imageUrl: '',
       link: 'https://github.com/4Banks',
       details:
@@ -215,9 +248,9 @@ const config = {
     {
       title: 'Tuiaia — Machine Learning e PLN | pantanal.dev, 2023',
       description:
-        'Projeto em equipe desenvolvido no módulo Arara Azul do pantanal.dev, aplicando Processamento de Linguagem Natural à análise de sentimentos de notícias do mercado financeiro. A plataforma combina classificação de textos e apresentação dos resultados em um dashboard. O projeto Tuiaia recebeu menção honrosa.',
+        'Desenvolvimento do componente de Machine Learning de um projeto em equipe no módulo Arara Azul do pantanal.dev: coleta e preparação de notícias financeiras, ajuste fino de BERT multilíngue para classificação de sentimentos e rastreamento de experimentos com Weights & Biases. A plataforma apresenta os resultados em um dashboard. O Tuiaia recebeu menção honrosa.',
       imageUrl: '',
-      link: 'https://github.com/Tuiaia',
+      link: 'https://github.com/Tuiaia/artificial-intelligence',
       details:
         'O </pantanal.dev> é uma iniciativa de formação intensiva em tecnologias de ponta, visando aprimorar talentos da região Centro-Oeste do Brasil e conectar esses profissionais a oportunidades de trabalho remoto no setor financeiro nacional. A Universidade Federal de Mato Grosso do Sul lidera o programa, em parceria com empresas renomadas como B3, PDtec, BLK e Neoway. No primeiro módulo, os participantes foram desafiados a empregar técnicas avançadas de Processamento de Linguagem Natural. O objetivo era treinar um classificador de sentimentos e criar um produto capaz de analisar o sentimento presente em notícias do mercado financeiro. Sob a orientação de um especialista da B3, minha equipe desenvolveu o "Tuiaia". Esta plataforma reúne informações de fontes financeiras respeitadas, como Google News, InfoMoney e Forbes, e avalia o sentimento das notícias, classificando-as como negativas, neutras ou positivas. Visando inovar e elevar o padrão do nosso produto, incorporamos a análise do grau de impacto das notícias (baixo, neutro, alto) e a duração estimada desse impacto (curto, neutro, longo). Além disso, projetamos um dashboard interativo que exibe os resultados das análises ao longo do tempo. Em reconhecimento à sua importância e inovação, o projeto recebeu Menção Honrosa.',
     },

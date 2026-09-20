@@ -4,7 +4,7 @@ const config = {
   language: 'en',
   profile: {
     name: 'Tiago Santi',
-    bio: 'Machine Learning Researcher | MSc Candidate in Computer Science at UFMS | Software Engineer',
+    bio: 'Machine Learning Researcher | MSc Student in Computer Science at UFMS | Software Engineer',
     about:
       'My work combines Machine Learning research and software development. As a CAPES-funded MSc student in Computer Science at UFMS, working academically with the Artificial Intelligence Laboratory (LIA), I investigate how neural networks can learn new classes while retaining prior knowledge. My interests include Continual Learning, Representation Learning, Metric Learning, Deep Learning, and AI applications supported by Software Engineering.',
   },
@@ -68,43 +68,76 @@ const config = {
   resume: {
     fileUrl: '', // Empty fileUrl will hide the `Download Resume` button.
   },
-  skillsTitle: 'Skills',
-  skills: [
-    'Continual Learning',
-    'Class-Incremental Learning',
-    'Representation Learning & Metric Learning',
-    'Scientific Research',
-    'PyTorch',
-    'English - Advanced',
-    'Portuguese - Native',
-    'Python - Machine Learning & Data Science (Pandas | NumPy | Scikit-learn | FastAPI)',
-    'Software Development - C# | C | Java | JavaScript',
-    'Database & Query Languages - SQL',
-    'Version Control & Collaboration - Git | GitHub',
-    'DevOps & Containerization - Docker',
-    'Project Management - Scrum | Kanban',
-    'Classical ML | Deep Learning | Neural Networks',
-    'Large Language Models (LLM) - Prompt Engineering | Fine-tuning | RAG Systems',
-    'Computer Vision - Object Detection | Face Recognition | Image Processing',
-    'Natural Language Processing - Sentiment Analysis | Text Classification',
-    'Data Engineering - Collection | Processing | Analysis | ETL',
-    'Cloud Computing - Google Cloud Platform (GCP)',
-    'Cloud Services - GCS | BigQuery | Looker Studio | Compute Engine | App Engine',
+  skillGroups: [
+    {
+      title: 'Machine Learning & Research',
+      items: [
+        'Scientific Research',
+        'Classical Machine Learning',
+        'Deep Learning & Neural Networks',
+        'Continual Learning',
+        'Class-Incremental Learning',
+        'Representation & Metric Learning',
+        'Contrastive Learning',
+      ],
+    },
+    {
+      title: 'Applied AI',
+      items: [
+        'Computer Vision: image processing, object detection (YOLOv5), face recognition',
+        'NLP: sentiment analysis and text classification',
+        'LLMs: prompt engineering, fine-tuning and RAG',
+      ],
+    },
+    {
+      title: 'Python & Data',
+      items: [
+        'Python',
+        'PyTorch',
+        'Hugging Face Transformers',
+        'Experiment tracking with Weights & Biases',
+        'pandas · NumPy · scikit-learn',
+        'SQL',
+        'Data collection, processing and ETL',
+        'Data analysis & visualization',
+      ],
+    },
+    {
+      title: 'Software Engineering',
+      items: [
+        'C · C# · Java · JavaScript · PHP',
+        'Backend APIs with FastAPI',
+        'Git & GitHub',
+        'Docker',
+        'Scrum & Kanban',
+      ],
+    },
+    {
+      title: 'Cloud & Analytics',
+      items: [
+        'Google Cloud: Cloud Storage (GCS), BigQuery, Compute Engine and App Engine',
+        'Looker Studio',
+      ],
+    },
+    {
+      title: 'Languages',
+      items: ['Portuguese — Native', 'English — Advanced'],
+    },
   ],
   experiences: [
     {
       company: 'LEDES - Software Engineering Laboratory',
-      position: 'Artificial Intelligence Engineer - Scholarship',
+      position: 'Artificial Intelligence Engineer — Scholarship Holder',
       from: 'February 2025',
       to: 'Present',
-      companyLink: 'https://www.facom.ufms.br/',
+      companyLink: 'https://www.facom.ufms.br/laboratorios/',
       description:
-        'Application of concepts in technological innovation and process automation in public advocacy.',
+        'Applied technological innovation and process automation for public-sector legal services.',
     },
     {
       company:
         'SESI Innovation Center in Technologies for Health and Safety at Work',
-      position: 'Software Developer Specialist Scholarship',
+      position: 'Software Development Specialist — Scholarship Holder',
       from: 'September 2022',
       to: 'December 2022',
       companyLink: 'http://www.cis.sesims.com.br/',
@@ -112,7 +145,7 @@ const config = {
     {
       company:
         'SESI Innovation Center in Technologies for Health and Safety at Work',
-      position: 'Artificial Intelligence Developer Internship',
+      position: 'Artificial Intelligence Development Intern',
       from: 'February 2022',
       to: 'August 2022',
       companyLink: 'http://www.cis.sesims.com.br/',
@@ -138,40 +171,40 @@ const config = {
       year: 'April 1 - May 20, 2023',
     },
     {
-      name: 'Participation Certification in CBSoft 2023 by the Brazilian Computer Society',
+      name: 'CBSoft 2023 — Participation',
       body: 'Participation in the XIV Brazilian Congress on Software: Theory and Practice (CBSoft 2023). The event took place from September 25th to 29th in Campo Grande - MS | 40 total hours',
       year: 'September 2023',
       link: 'https://github.com/TiagoSanti/tiagosanti.github.io/blob/main/public/pdf/XIV%20CBSoft%202023.pdf',
     },
     {
       name: 'Complete C# Object-Oriented Programming + Projects',
-      body: 'Instructors Nelio Alves | 38 total hours',
+      body: 'Instructor: Nelio Alves | 38 total hours',
       year: 'May 2022',
       link: 'https://www.udemy.com/certificate/UC-f9d96d36-677f-4db4-b786-6320c65d23b2/',
     },
     {
       name: 'Scholarship in Technological Development and Innovation (PIBITI)',
-      body: 'Project "Deep Learning Applied to Water Level Measurement in Urban Streams Using Images" | Federal University of Mato Grosso do Sul | 1,040 total hours',
+      body: 'Project "Deep Learning Applied to Water Level Measurement in Urban Streams Using Images" | Federal University of Mato Grosso do Sul | 20 hours per week',
       year: 'September 2021 - August 2022',
       link: 'https://github.com/TiagoSanti/tiagosanti.github.io/blob/main/public/pdf/PIBITI%20-%20Deep%20Learning.pdf',
     },
     {
       name: 'Artificial Neural Networks in Python',
-      body: 'Instructors Jones Granatyr, IA Expert Academy | 8.5 total hours',
+      body: 'Instructor: Jones Granatyr, IA Expert Academy | 8.5 total hours',
       year: 'July 2021',
       link: '/pdf/Artificial%20Neural%20Networks%20in%20Python.pdf',
     },
     {
       name: 'Arduino Mini Course',
       body: 'Development of Guidance and Training Activities in Computer Systems at Federal University of Mato Grosso do Sul | 30 total hours',
-      year: 'July 2019',
+      year: 'August 2018 - July 2019',
       link: 'https://github.com/TiagoSanti/tiagosanti.github.io/blob/main/public/pdf/Arduino%20Mini%20Course.pdf',
     },
     {
       name: 'Honorable Mention Level 3 - Brazilian Public Schools Mathematics Olympiad',
-      body: 'Ministry of Education, Technology, and Innovation',
-      year: 'December 2018',
-      link: 'http://premiacao.obmep.org.br/2018/verRelatorioPremiadosMencao-MS.3.privada.do.htm',
+      body: 'OBMEP 2018 | Level 3 honorable mention; listed among private-school award recipients in Mato Grosso do Sul.',
+      year: '2018',
+      link: 'https://premiacao.obmep.org.br/2018/verRelatorioPremiadosMencao-MS.3.privada.do.htm',
     },
   ],
   education: [
@@ -185,15 +218,16 @@ const config = {
     },
     {
       institution: 'Federal University of Mato Grosso do Sul',
-      degree: 'Software Engineering Bachelor | GPA: 9.02/10.0',
+      degree:
+        'Bachelor’s Degree in Software Engineering | Academic average: 9.02/10.0',
       from: '2021',
       to: '2024',
     },
     {
       institution: 'Federal University of Mato Grosso do Sul',
-      degree: 'Computer Engineering Bachelor',
+      degree: 'Undergraduate Studies in Computer Engineering (not completed)',
       from: '2019',
-      to: '2021 | interrupted',
+      to: '2021',
     },
   ],
   externalProjects: [
@@ -206,7 +240,7 @@ const config = {
     {
       title: '4banks — Data Science | pantanal.dev, 2023',
       description:
-        'Co-author of a credit-card transaction data analysis platform for fraud-detection teams in financial institutions. The project combines data processing, transformation, analysis, and visualization through configurable pipelines. Developed in the pantanal.dev Onça Pintada module, with an abstract published in the Integra UFMS 2023 proceedings.',
+        'Backend developer, data analyst, and DevOps contributor to a credit-card transaction data analysis platform for fraud-detection teams in financial institutions. The project combines data processing, transformation, analysis, and visualization through configurable pipelines. Developed in the pantanal.dev Onça Pintada module, where the team won the module challenge. An abstract was published in the Integra UFMS 2023 proceedings.',
       imageUrl: '',
       link: 'https://github.com/4Banks',
       details:
@@ -215,9 +249,9 @@ const config = {
     {
       title: 'Tuiaia — Machine Learning and NLP | pantanal.dev, 2023',
       description:
-        'Team project developed in the pantanal.dev Arara Azul module, applying Natural Language Processing to sentiment analysis of financial news. The platform combines text classification with a dashboard for presenting analysis results. Tuiaia received an honorable mention.',
+        'Developed the Machine Learning component of a team project in the pantanal.dev Arara Azul module: collected and prepared financial news, fine-tuned multilingual BERT for sentiment classification, and tracked experiments with Weights & Biases. The platform presents results in a dashboard. Tuiaia received an honorable mention.',
       imageUrl: '',
-      link: 'https://github.com/Tuiaia',
+      link: 'https://github.com/Tuiaia/artificial-intelligence',
       details:
         '</pantanal.dev> is an intensive training initiative in cutting-edge technologies, aimed at enhancing talents from the central region of Brazil and connecting these professionals to remote work opportunities in the national financial sector. The Federal University of Mato Grosso do Sul leads the program, partnering with renowned companies such as B3, PDtec, BLK, and Neoway. In the first module, participants were challenged to employ advanced Natural Language Processing techniques. The goal was to train a sentiment classifier and create a product capable of analyzing the sentiment present in financial market news. Under the guidance of an expert from B3, my team developed "Tuiaia". This platform gathers information from esteemed financial sources, such as Google News, InfoMoney, and Forbes, and assesses the sentiment of the news, classifying them as negative, neutral, or positive. Aiming to innovate and elevate the standard of our product, we incorporated the analysis of the news\' impact degree (low, neutral, high) and the estimated duration of this impact (short, neutral, long). Additionally, we designed an interactive dashboard that displays the results of the analyses over time. In recognition of its importance and innovation, the project received an Honorable Mention.',
     },
