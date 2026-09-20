@@ -209,7 +209,7 @@ const Details = ({ profile, loading, social, github, language = 'en' }) => {
               {social?.website && (
                 <ListItem
                   icon={<FaGlobe />}
-                  title="Website:"
+                  title={language === 'pt' ? 'Site:' : 'Website:'}
                   value={social.website}
                   link={social.website}
                 />

@@ -252,6 +252,6 @@ export const notFoundError = {
 
 export const genericError = {
   status: 500,
-  title: 'Ops!!',
+  title: 'Unable to load the portfolio.',
   subTitle: 'Something went wrong.',
 };

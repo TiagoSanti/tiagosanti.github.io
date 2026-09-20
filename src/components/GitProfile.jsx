@@ -40,6 +40,7 @@ const GitProfile = ({ config, languageSwitcher }) => {
   if (!isValidConfig(config)) {
     return (
       <ErrorPage
+        language={config?.language}
         status={String(noConfigError.status)}
         title={noConfigError.title}
         subTitle={noConfigError.subTitle}
@@ -169,6 +170,7 @@ const GitProfileContent = ({ config, languageSwitcher }) => {
       <div className="fade-in h-screen">
         {error ? (
           <ErrorPage
+            language={language}
             status={`${error.status}`}
             title={error.title}
             subTitle={error.subTitle}
@@ -240,6 +242,7 @@ const GitProfileContent = ({ config, languageSwitcher }) => {
                   <div className="col-span-1">
                     <div className="grid grid-cols-1 gap-6">
                       <AvatarCard
+                        language={language}
                         profile={displayProfile}
                         loading={loading}
                         avatarRing={!sanitizedConfig.themeConfig.hideAvatarRing}

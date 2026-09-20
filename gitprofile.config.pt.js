@@ -4,6 +4,7 @@ const config = {
   language: 'pt',
   profile: {
     name: 'Tiago Santi',
+    location: 'Campo Grande, MS, Brasil',
     bio: 'Pesquisador em Machine Learning | Mestrando em Ciência da Computação na UFMS | Engenheiro de Software',
     about:
       'Minha trajetória combina pesquisa em Machine Learning e desenvolvimento de software. No mestrado em Ciência da Computação da UFMS, com bolsa CAPES e atuação acadêmica junto ao Laboratório de Inteligência Artificial (LIA), investigo como redes neurais podem aprender novas classes sem perder conhecimento anterior. Meus interesses incluem Aprendizado Contínuo, aprendizado de representações e de métricas, Deep Learning e aplicações de IA apoiadas por Engenharia de Software.',

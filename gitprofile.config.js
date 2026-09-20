@@ -4,6 +4,7 @@ const config = {
   language: 'en',
   profile: {
     name: 'Tiago Santi',
+    location: 'Campo Grande, MS, Brazil',
     bio: 'Machine Learning Researcher | MSc Student in Computer Science at UFMS | Software Engineer',
     about:
       'My work combines Machine Learning research and software development. As a CAPES-funded MSc student in Computer Science at UFMS, working academically with the Artificial Intelligence Laboratory (LIA), I investigate how neural networks can learn new classes while retaining prior knowledge. My interests include Continual Learning, Representation Learning, Metric Learning, Deep Learning, and AI applications supported by Software Engineering.',

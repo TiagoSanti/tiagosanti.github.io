@@ -2,7 +2,14 @@ import PropTypes from 'prop-types';
 import { fallbackImage, skeleton } from '../../helpers/utils';
 import LazyImage from '../lazy-image';
 
-const AvatarCard = ({ profile, loading, avatarRing, resume, lattes }) => {
+const AvatarCard = ({
+  profile,
+  loading,
+  avatarRing,
+  resume,
+  lattes,
+  language = 'en',
+}) => {
   return (
     <div className="card shadow-lg compact bg-base-100">
       <div className="grid place-items-center py-8">
@@ -62,7 +69,7 @@ const AvatarCard = ({ profile, loading, avatarRing, resume, lattes }) => {
             rel="noreferrer"
             className="btn btn-primary btn-sm mt-6"
           >
-            Currículo Lattes
+            {language === 'pt' ? 'Currículo Lattes' : 'Lattes CV'}
           </a>
         )}
         {resume?.fileUrl &&
@@ -78,7 +85,7 @@ const AvatarCard = ({ profile, loading, avatarRing, resume, lattes }) => {
               download
               rel="noreferrer"
             >
-              Download Resume
+              {language === 'pt' ? 'Baixar currículo' : 'Download Resume'}
             </a>
           ))}
       </div>
