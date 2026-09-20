@@ -78,9 +78,10 @@ const Project = ({
           try {
             if (googleAnalytics?.id) {
               ga.event({
-                action: 'Click project',
+                action: 'project_click',
                 params: {
-                  project: item.name,
+                  project_id: item.full_name,
+                  project_type: 'github',
                 },
               });
             }

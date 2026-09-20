@@ -44,7 +44,16 @@ const ExternalProject = ({
                       {item.description}
                     </p>
                     {item.details && (
-                      <details className="text-sm text-base-content/80">
+                      <details
+                        className="text-sm text-base-content/80"
+                        onToggle={(event) => {
+                          if (event.currentTarget.open && googleAnalytics?.id)
+                            ga.event({
+                              action: 'project_details_open',
+                              params: { project_id: item.id || item.title },
+                            });
+                        }}
+                      >
                         <summary className="cursor-pointer font-medium py-2">
                           {pt
                             ? 'Contexto e detalhes do projeto'
@@ -64,8 +73,11 @@ const ExternalProject = ({
                         onClick={() => {
                           if (googleAnalytics?.id)
                             ga.event({
-                              action: 'Click External Project',
-                              params: { post: item.title },
+                              action: 'project_click',
+                              params: {
+                                project_id: item.id || item.title,
+                                project_type: 'featured',
+                              },
                             });
                         }}
                       >

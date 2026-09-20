@@ -232,12 +232,14 @@ const config = {
   ],
   externalProjects: [
     {
+      id: 'msc_ant',
       title:
         'Mestrado — Aprendizado Contínuo e Incremental de Classes | 2025 - Presente',
       description:
         'Em aplicações que evoluem ao longo do tempo, modelos de visão computacional precisam aprender novas classes sem perder o conhecimento anterior. No mestrado, investigo esse desafio no aprendizado incremental de classes, em que o modelo reconhece todas as classes aprendidas sem receber a identidade da tarefa. Proponho e implemento a ANT (Avoid Non-essential Tuning), um termo de regularização que atua seletivamente sobre relações entre exemplos negativos no aprendizado contrastivo. Integrada ao TagFex, a proposta é avaliada em três bases de imagens, combinando formulação matemática, experimentação e estudos de ablação para investigar o equilíbrio entre aquisição e retenção de conhecimento.',
     },
     {
+      id: '4banks',
       title: '4banks — Ciência de Dados | pantanal.dev, 2023',
       description:
         'Atuação em desenvolvimento backend, análise de dados e DevOps em uma plataforma de análise de transações de cartão de crédito, voltada a equipes de detecção de fraudes em instituições financeiras. O projeto integra processamento, transformação, análise e visualização de dados em pipelines configuráveis. Desenvolvido no contexto do módulo Onça Pintada do pantanal.dev, no qual a equipe venceu o desafio. Resumo publicado no Integra UFMS 2023.',
@@ -247,6 +249,7 @@ const config = {
         'O </pantanal.dev> é uma iniciativa de formação intensiva em tecnologias de ponta, visando aprimorar talentos da região Centro-Oeste do Brasil e conectar esses profissionais a oportunidades de trabalho remoto no setor financeiro nacional. A Universidade Federal de Mato Grosso do Sul lidera o programa, em parceria com empresas renomadas como B3, PDtec, BLK e Neoway. Neste módulo, o desafio proposto foi detectar fraudes em cartões de crédito usando técnicas estatísticas e, com base nesses insights, criar um produto que contribuísse para a solução desse problema. Iniciamos com uma pesquisa de mercado aprofundada, buscando entender as necessidades, objetivos e o nível de satisfação dos profissionais do setor com as ferramentas disponíveis. Em seguida, realizamos dinâmicas para alinhar expectativas em relação ao projeto e moldar a visão do produto. Estabelecemos metas claras, atividades a serem realizadas, modelamos o processo de negócio e estabelecemos padrões rigorosos de desenvolvimento. O resultado foi o "4banks", uma plataforma de análise de dados projetada para atender cientistas de dados focados na detecção de fraudes em entidades financeiras. Através do 4banks, os usuários têm a capacidade de explorar dados de transações com cartão de crédito, obtendo desde análises gerais até insights mais profundos e específicos. Ao integrar sólidos princípios de Engenharia de Software em cada etapa do projeto, conseguimos entregar um excelente produto, de forma ágil e eficiente, alinhado com as melhores práticas do mercado. Esse compromisso com a qualidade foi crucial para alcançarmos a vitória neste módulo.',
     },
     {
+      id: 'tuiaia',
       title: 'Tuiaia — Machine Learning e PLN | pantanal.dev, 2023',
       description:
         'Desenvolvimento do componente de Machine Learning de um projeto em equipe no módulo Arara Azul do pantanal.dev: coleta e preparação de notícias financeiras, ajuste fino de BERT multilíngue para classificação de sentimentos e rastreamento de experimentos com Weights & Biases. A plataforma apresenta os resultados em um dashboard. O Tuiaia recebeu menção honrosa.',
@@ -256,6 +259,7 @@ const config = {
         'O </pantanal.dev> é uma iniciativa de formação intensiva em tecnologias de ponta, visando aprimorar talentos da região Centro-Oeste do Brasil e conectar esses profissionais a oportunidades de trabalho remoto no setor financeiro nacional. A Universidade Federal de Mato Grosso do Sul lidera o programa, em parceria com empresas renomadas como B3, PDtec, BLK e Neoway. No primeiro módulo, os participantes foram desafiados a empregar técnicas avançadas de Processamento de Linguagem Natural. O objetivo era treinar um classificador de sentimentos e criar um produto capaz de analisar o sentimento presente em notícias do mercado financeiro. Sob a orientação de um especialista da B3, minha equipe desenvolveu o "Tuiaia". Esta plataforma reúne informações de fontes financeiras respeitadas, como Google News, InfoMoney e Forbes, e avalia o sentimento das notícias, classificando-as como negativas, neutras ou positivas. Visando inovar e elevar o padrão do nosso produto, incorporamos a análise do grau de impacto das notícias (baixo, neutro, alto) e a duração estimada desse impacto (curto, neutro, longo). Além disso, projetamos um dashboard interativo que exibe os resultados das análises ao longo do tempo. Em reconhecimento à sua importância e inovação, o projeto recebeu Menção Honrosa.',
     },
     {
+      id: 'pibiti',
       title:
         'PIBITI — Visão Computacional para monitoramento de córregos | Set/2021 - Ago/2022',
       description:
@@ -266,11 +270,13 @@ const config = {
         "As inundações são um dos fenômenos naturais mais perigosos (WMO, 2011), causando danos econômicos, sociais e à saúde. A ocorrência desse fenômeno aumentou significativamente nos últimos 20 anos, relacionada à rápida urbanização e às mudanças climáticas que elevam o risco de inundações, tornando essencial o monitoramento dos cursos d'água urbanos. Este projeto propõe medir o nível da água em córregos urbanos usando câmeras de segurança e algoritmos de deep learning. Para atingir esse objetivo, redes neurais convolucionais, uma classe de redes neurais artificiais na área de deep learning, têm sido amplamente aplicadas no processamento de imagens com sucesso, e, portanto, foram a ferramenta essencial para os resultados obtidos até agora. Neste estudo, utilizamos o método de detecção de objetos YOLOv5, que permite resultados rápidos, o que é crucial em situações de inundação. Combinada com um banco de dados de imagens rotuladas com níveis de água, uma rede neural convolucional foi treinada para prever a localização gráfica da altura do curso d'água. Nas imagens de teste, foi alcançado um F-score de 0,996 considerando um AP50. Espera-se que os resultados possam ser utilizados para a construção de sistemas de monitoramento e alerta de inundações de baixo custo, dado que os equipamentos tradicionalmente utilizados para medição do nível da água requerem uma instalação arriscada localizada no curso d'água e também apresentam risco de perda desses dispositivos custosos durante um evento severo de inundação. Além disso, as imagens coletadas podem fornecer informações tanto quantitativas quanto qualitativas sobre o curso d'água monitorado e seu entorno para diversos fins, como defesa civil.",
     },
     {
+      id: 'online_evidence_grabber',
       title: 'Online Evidence Grabber | 2024',
       description:
         'Coautor de software em Python para coleta e organização de evidências digitais disponíveis na Web, apoiando sua documentação e análise. Programa de computador registrado no INPI sob BR512024002737-8, com certificado expedido em 06/08/2024; titularidade da UFMS.',
     },
     {
+      id: 'soae',
       title: 'Sistema Operacional Academia Escola (SOAE) | 2024',
       description:
         'Coautor de um sistema web para gestão de processos acadêmicos e administrativos de uma academia escola, centralizando alunos, profissionais, atividades e atendimentos. Desenvolvido em JavaScript e PHP. Programa de computador registrado no INPI sob BR512024005131-7, com certificado expedido em 31/12/2024; titularidade da UFMS.',

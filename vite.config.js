@@ -24,9 +24,9 @@ export default defineConfig({
       },
       includeAssets: ['logo.png'],
       manifest: {
-        name: 'Portfolio',
-        short_name: 'Portfolio',
-        description: 'Personal Portfolio',
+        name: 'Tiago Santi | CV',
+        short_name: 'CV',
+        description: 'Academic and professional CV of Tiago Santi',
         icons: [
           {
             src: 'logo.png',

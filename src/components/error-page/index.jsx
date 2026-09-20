@@ -6,12 +6,12 @@ const ErrorPage = (props) => {
     props.title === 'No Config is provided.'
       ? [
           'Configuração não fornecida.',
-          'Forneça a configuração necessária para carregar o portfólio.',
+          'Forneça a configuração necessária para carregar o currículo.',
         ]
       : props.status === '404'
         ? [
             'Usuário do GitHub não encontrado.',
-            'Confira o nome de usuário na configuração do portfólio.',
+            'Confira o nome de usuário na configuração do currículo.',
           ]
         : props.status === '429'
           ? [
@@ -19,7 +19,7 @@ const ErrorPage = (props) => {
               'O GitHub limitou temporariamente as solicitações. Tente novamente mais tarde.',
             ]
           : [
-              'Não foi possível carregar o portfólio.',
+              'Não foi possível carregar o currículo.',
               'Ocorreu um erro. Tente novamente mais tarde.',
             ];
   return (

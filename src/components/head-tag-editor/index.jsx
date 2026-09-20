@@ -3,34 +3,14 @@ import { Helmet } from 'react-helmet-async';
 import PropTypes from 'prop-types';
 import { isDarkishTheme } from '../../helpers/utils';
 
-const HeadTagEditor = ({
-  profile,
-  theme,
-  googleAnalytics,
-  social,
-  language = 'en',
-}) => {
+const HeadTagEditor = ({ profile, theme, social, language = 'en' }) => {
   return (
     <Fragment>
       {profile && (
         <Helmet>
           <html lang={language === 'pt' ? 'pt-BR' : 'en-US'} />
-          {googleAnalytics?.id && (
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalytics.id}`}
-            ></script>
-          )}
-          {googleAnalytics?.id && (
-            <script>
-              {`window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${googleAnalytics.id}');`}
-            </script>
-          )}
           <title>
-            {language === 'pt' ? 'Portfólio' : 'Portfolio'} | {profile.name}
+            {language === 'pt' ? 'Currículo' : 'CV'} | {profile.name}
           </title>
           <meta
             name="theme-color"
@@ -41,7 +21,7 @@ const HeadTagEditor = ({
 
           <meta
             itemProp="name"
-            content={`Portfolio${profile.name && ` of ${profile.name}`}`}
+            content={`${language === 'pt' ? 'Currículo' : 'CV'} | ${profile.name}`}
           />
           <meta itemProp="description" content={profile.bio} />
           <meta itemProp="image" content={profile.avatar} />
@@ -50,7 +30,7 @@ const HeadTagEditor = ({
           <meta property="og:type" content="website" />
           <meta
             property="og:title"
-            content={`Portfolio${profile.name && ` of ${profile.name}`}`}
+            content={`${language === 'pt' ? 'Currículo' : 'CV'} | ${profile.name}`}
           />
           <meta property="og:description" content={profile.bio} />
           <meta property="og:image" content={profile.avatar} />
@@ -58,7 +38,7 @@ const HeadTagEditor = ({
           <meta name="twitter:card" content="summary_large_image" />
           <meta
             name="twitter:title"
-            content={`Portfolio${profile.name && ` of ${profile.name}`}`}
+            content={`${language === 'pt' ? 'Currículo' : 'CV'} | ${profile.name}`}
           />
           <meta name="twitter:description" content={profile.bio} />
           <meta name="twitter:image" content={profile.avatar} />
@@ -72,7 +52,6 @@ HeadTagEditor.propTypes = {
   language: PropTypes.string,
   profile: PropTypes.object,
   theme: PropTypes.string,
-  googleAnalytics: PropTypes.object.isRequired,
   social: PropTypes.object.isRequired,
 };
 

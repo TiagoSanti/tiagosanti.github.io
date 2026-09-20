@@ -5,8 +5,8 @@ const ProfileOverview = ({ profile, language }) => (
     <div className="card-body gap-4">
       <h2 className="card-title">
         {language === 'pt'
-          ? 'Pesquisa e Engenharia de Software'
-          : 'Research & Software Engineering'}
+          ? 'Currículo — Pesquisa e Engenharia de Software'
+          : 'CV — Research & Software Engineering'}
       </h2>
       <p className="leading-relaxed text-base-content/80">{profile.about}</p>
     </div>

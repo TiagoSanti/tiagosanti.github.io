@@ -1,3 +1,4 @@
+import { analytics, contactChannel } from '../helpers/analytics.mjs';
 import axios from 'axios';
 import { Fragment, Suspense, lazy, useEffect, useState, useMemo } from 'react';
 import HeadTagEditor from './head-tag-editor';
@@ -57,6 +58,33 @@ const GitProfileContent = ({ config, languageSwitcher }) => {
   const [error, setError] = useState(null);
   const language = sanitizedConfig.language;
   const pt = language === 'pt';
+  useEffect(() => {
+    analytics.initialize({
+      id: sanitizedConfig.googleAnalytics.id,
+      website: sanitizedConfig.social.website,
+      production: import.meta.env.PROD,
+      lang: language,
+      title: `${pt ? 'Currículo' : 'CV'} | ${sanitizedConfig.profile.name || username}`,
+    });
+  }, [
+    language,
+    pt,
+    sanitizedConfig.googleAnalytics.id,
+    sanitizedConfig.social.website,
+    sanitizedConfig.profile.name,
+    sanitizedConfig.github.username,
+  ]);
+
+  useEffect(() => {
+    const onClick = (event) => {
+      const link = event.target.closest?.('a[href]');
+      const channel = contactChannel(link?.href);
+      if (channel)
+        analytics.event('contact_click', { contact_channel: channel });
+    };
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, []);
   const [theme, setTheme] = useState(() =>
     getInitialTheme(sanitizedConfig.themeConfig)
   );
@@ -161,9 +189,8 @@ const GitProfileContent = ({ config, languageSwitcher }) => {
       {sanitizedConfig && (
         <HeadTagEditor
           language={language}
-          profile={displayProfile}
+          profile={{ ...displayProfile, ...sanitizedConfig.profile }}
           theme={theme}
-          googleAnalytics={sanitizedConfig.googleAnalytics}
           social={sanitizedConfig.social}
         />
       )}

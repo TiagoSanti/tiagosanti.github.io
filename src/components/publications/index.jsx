@@ -1,3 +1,4 @@
+import { analytics } from '../../helpers/analytics.mjs';
 import PropTypes from 'prop-types';
 
 const Publications = ({ publications, language }) => {
@@ -19,6 +20,11 @@ const Publications = ({ publications, language }) => {
                 <a
                   className="link link-hover"
                   href={item.link}
+                  onClick={() =>
+                    analytics.event('publication_click', {
+                      publication_id: `integra_${item.year}_${item.page}`,
+                    })
+                  }
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -34,6 +40,11 @@ const Publications = ({ publications, language }) => {
               <a
                 className="link text-sm"
                 href={item.link}
+                onClick={() =>
+                  analytics.event('publication_click', {
+                    publication_id: `integra_${item.year}_${item.page}`,
+                  })
+                }
                 target="_blank"
                 rel="noreferrer"
               >

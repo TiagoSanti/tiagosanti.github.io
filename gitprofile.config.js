@@ -233,12 +233,14 @@ const config = {
   ],
   externalProjects: [
     {
+      id: 'msc_ant',
       title:
         'MSc Research — Continual and Class-Incremental Learning | 2025 - Present',
       description:
         'In applications that evolve over time, computer vision models need to learn new classes while retaining prior knowledge. My MSc research investigates this challenge in class-incremental learning, where a model recognizes all learned classes without task identity at inference time. I propose and implement ANT (Avoid Non-essential Tuning), a regularization term that selectively acts on relationships among negative examples in contrastive learning. Integrated into TagFex, the method is evaluated on three image datasets, combining mathematical formulation, experimentation, and ablation studies to investigate the balance between acquiring new knowledge and retaining what has already been learned.',
     },
     {
+      id: '4banks',
       title: '4banks — Data Science | pantanal.dev, 2023',
       description:
         'Backend developer, data analyst, and DevOps contributor to a credit-card transaction data analysis platform for fraud-detection teams in financial institutions. The project combines data processing, transformation, analysis, and visualization through configurable pipelines. Developed in the pantanal.dev Onça Pintada module, where the team won the module challenge. An abstract was published in the Integra UFMS 2023 proceedings.',
@@ -248,6 +250,7 @@ const config = {
         '</pantanal.dev> is an intensive training initiative in cutting-edge technologies, aimed at enhancing talents from the central region of Brazil and connecting these professionals to remote work opportunities in the national financial sector. The Federal University of Mato Grosso do Sul leads the program, partnering with renowned companies such as B3, PDtec, BLK, and Neoway. In this module, the proposed challenge was to detect credit card fraud using statistical techniques and, based on these insights, create a product that would contribute to solving this issue. We began with an in-depth market research, seeking to understand the needs, objectives, and the satisfaction level of professionals in the sector with the available tools. Next, we conducted dynamics to align expectations regarding the project and shape the product vision. We set clear goals, activities to be carried out, modeled the business process, and established strict development standards. The result was "4banks", a data analysis platform designed to serve data scientists focused on detecting fraud in financial entities. Through 4banks, users have the ability to delve into credit card transaction data, obtaining everything from general analyses to deeper and more specific insights. By integrating solid Software Engineering principles at every stage of the project, we were able to deliver an excellent product, agilely and efficiently, aligned with the best market practices. This commitment to quality was crucial for us to achieve victory in this module.',
     },
     {
+      id: 'tuiaia',
       title: 'Tuiaia — Machine Learning and NLP | pantanal.dev, 2023',
       description:
         'Developed the Machine Learning component of a team project in the pantanal.dev Arara Azul module: collected and prepared financial news, fine-tuned multilingual BERT for sentiment classification, and tracked experiments with Weights & Biases. The platform presents results in a dashboard. Tuiaia received an honorable mention.',
@@ -257,6 +260,7 @@ const config = {
         '</pantanal.dev> is an intensive training initiative in cutting-edge technologies, aimed at enhancing talents from the central region of Brazil and connecting these professionals to remote work opportunities in the national financial sector. The Federal University of Mato Grosso do Sul leads the program, partnering with renowned companies such as B3, PDtec, BLK, and Neoway. In the first module, participants were challenged to employ advanced Natural Language Processing techniques. The goal was to train a sentiment classifier and create a product capable of analyzing the sentiment present in financial market news. Under the guidance of an expert from B3, my team developed "Tuiaia". This platform gathers information from esteemed financial sources, such as Google News, InfoMoney, and Forbes, and assesses the sentiment of the news, classifying them as negative, neutral, or positive. Aiming to innovate and elevate the standard of our product, we incorporated the analysis of the news\' impact degree (low, neutral, high) and the estimated duration of this impact (short, neutral, long). Additionally, we designed an interactive dashboard that displays the results of the analyses over time. In recognition of its importance and innovation, the project received an Honorable Mention.',
     },
     {
+      id: 'pibiti',
       title:
         'PIBITI — Computer Vision for stream monitoring | Sep/2021 - Aug/2022',
       description:
@@ -267,11 +271,13 @@ const config = {
         "Flooding is one of the most dangerous natural phenomena (WMO, 2011), causing economic, social, and health damages. The occurrence of this phenomenon has significantly increased in the last 20 years, related to rapid urbanization and climate changes that heighten the risk of floods, thus making it essential to monitor urban watercourses. This project proposes measuring the water level in urban streams using security cameras and deep learning algorithms. To achieve this goal, convolutional neural networks, a class of artificial neural networks in the deep learning area, have been widely applied in image processing with success, and therefore were the essential tool for the results obtained so far. In this study, we used the YOLOv5 object detection method, which allows for quick results, which is crucial in flood situations. Combined with a database of images labeled with water levels, a convolutional neural network was trained to predict the graphical location of the watercourse's height. In the test images, an F-score of 0.996 was achieved considering an AP50. It is hoped that the results can be used for the construction of low-cost monitoring and flood warning systems, given that the equipment traditionally used for water level measurement requires a risky installation located in the watercourse and also presents a risk of losing these costly devices during a severe flooding event. Moreover, the collected images can provide both quantitative and qualitative information about the monitored watercourse and its surroundings for various purposes, such as civil defense.",
     },
     {
+      id: 'online_evidence_grabber',
       title: 'Online Evidence Grabber | 2024',
       description:
         'Co-author of Python software for collecting and organizing digital evidence available on the Web to support documentation and analysis. Computer program registered with Brazil’s INPI under BR512024002737-8; certificate issued August 6, 2024. UFMS holds the registration.',
     },
     {
+      id: 'soae',
       title: 'Sistema Operacional Academia Escola (SOAE) | 2024',
       description:
         'Co-author of a web system for academic and administrative management at a teaching gym, bringing together student, staff, activity, and service information. Developed in JavaScript and PHP. Computer program registered with Brazil’s INPI under BR512024005131-7; certificate issued December 31, 2024. UFMS holds the registration.',

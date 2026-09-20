@@ -4,7 +4,7 @@ export const staticSEO = (config) => ({
   transformIndexHtml: {
     order: 'pre',
     handler(html) {
-      const title = `Portfolio | ${config.profile.name}`;
+      const title = `CV | ${config.profile.name}`;
       const description = config.profile.bio;
       const website = config.social.website;
       const escape = (value) =>

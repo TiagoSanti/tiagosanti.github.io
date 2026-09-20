@@ -248,6 +248,7 @@ export interface Certifications {
 }
 
 export interface ExternalProjects {
+  id?: string;
   details?: string;
   linkLabel?: string;
   title: string;
