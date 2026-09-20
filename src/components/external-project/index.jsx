@@ -53,22 +53,24 @@ const ExternalProject = ({
                         <p className="mt-2 leading-relaxed">{item.details}</p>
                       </details>
                     )}
-                    <a
-                      className="link text-sm font-medium inline-block"
-                      href={item.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={() => {
-                        if (googleAnalytics?.id)
-                          ga.event({
-                            action: 'Click External Project',
-                            params: { post: item.title },
-                          });
-                      }}
-                    >
-                      {item.linkLabel ||
-                        (pt ? 'Conhecer o projeto' : 'Explore the project')}
-                    </a>
+                    {item.link && (
+                      <a
+                        className="link text-sm font-medium inline-block"
+                        href={item.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={() => {
+                          if (googleAnalytics?.id)
+                            ga.event({
+                              action: 'Click External Project',
+                              params: { post: item.title },
+                            });
+                        }}
+                      >
+                        {item.linkLabel ||
+                          (pt ? 'Conhecer o projeto' : 'Explore the project')}
+                      </a>
+                    )}
                   </>
                 )}
               </div>

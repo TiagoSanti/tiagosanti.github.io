@@ -202,8 +202,6 @@ const config = {
         'Mestrado — Aprendizado Contínuo e Incremental de Classes | 2025 - Presente',
       description:
         'Investigo como aprender novas classes e reter conhecimento anterior sem receber a identidade da tarefa durante a inferência. A pesquisa explora aprendizado de representações e de métricas para mitigar o esquecimento catastrófico. A intervenção ANT (Avoid Non-essential Tuning) introduz um termo auxiliar de margem nas similaridades negativas da InfoNCE, tendo TagFex como base experimental. A avaliação em CIFAR-100 e Tiny-ImageNet é preliminar: os efeitos dependem do protocolo e da configuração, sem conclusão geral de superioridade.',
-      link: 'https://lattes.cnpq.br/1032420798696234',
-      linkLabel: 'Contexto acadêmico no Lattes',
     },
     {
       title: '4banks — Ciência de Dados | pantanal.dev, 2023',
@@ -237,15 +235,11 @@ const config = {
       title: 'Online Evidence Grabber | 2024',
       description:
         'Coautor de software em Python para coleta e organização de evidências digitais disponíveis na Web, apoiando sua documentação e análise. Programa de computador registrado no INPI sob BR512024002737-8, com certificado expedido em 06/08/2024; titularidade da UFMS.',
-      link: 'https://lattes.cnpq.br/1032420798696234',
-      linkLabel: 'Registro descrito no Lattes',
     },
     {
       title: 'Sistema Operacional Academia Escola (SOAE) | 2024',
       description:
         'Coautor de um sistema web para gestão de processos acadêmicos e administrativos de uma academia escola, centralizando alunos, profissionais, atividades e atendimentos. Desenvolvido em JavaScript e PHP. Programa de computador registrado no INPI sob BR512024005131-7, com certificado expedido em 31/12/2024; titularidade da UFMS.',
-      link: 'https://lattes.cnpq.br/1032420798696234',
-      linkLabel: 'Registro descrito no Lattes',
     },
   ],
   blog: {

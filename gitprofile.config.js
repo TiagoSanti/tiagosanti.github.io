@@ -202,8 +202,6 @@ const config = {
         'MSc Research — Continual and Class-Incremental Learning | 2025 - Present',
       description:
         'I investigate how to learn new classes and retain prior knowledge without task identity at inference time. The research explores representation and metric learning to mitigate catastrophic forgetting. ANT (Avoid Non-essential Tuning) introduces an auxiliary margin term on negative similarities in InfoNCE, using TagFex as the experimental baseline. Evaluation on CIFAR-100 and Tiny-ImageNet is preliminary: effects depend on the protocol and configuration, with no general claim of superiority.',
-      link: 'https://lattes.cnpq.br/1032420798696234',
-      linkLabel: 'Academic context on Lattes',
     },
     {
       title: '4banks — Data Science | pantanal.dev, 2023',
@@ -237,15 +235,11 @@ const config = {
       title: 'Online Evidence Grabber | 2024',
       description:
         'Co-author of Python software for collecting and organizing digital evidence available on the Web to support documentation and analysis. Computer program registered with Brazil’s INPI under BR512024002737-8; certificate issued August 6, 2024. UFMS holds the registration.',
-      link: 'https://lattes.cnpq.br/1032420798696234',
-      linkLabel: 'Registration listed on Lattes',
     },
     {
       title: 'Sistema Operacional Academia Escola (SOAE) | 2024',
       description:
         'Co-author of a web system for academic and administrative management at a teaching gym, bringing together student, staff, activity, and service information. Developed in JavaScript and PHP. Computer program registered with Brazil’s INPI under BR512024005131-7; certificate issued December 31, 2024. UFMS holds the registration.',
-      link: 'https://lattes.cnpq.br/1032420798696234',
-      linkLabel: 'Registration listed on Lattes',
     },
   ],
   // Display blog posts from your medium or dev account. (Optional)

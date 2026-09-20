@@ -391,7 +391,7 @@ GitProfile.propTypes = {
       PropTypes.shape({
         title: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
-        link: PropTypes.string.isRequired,
+        link: PropTypes.string,
         imageUrl: PropTypes.string,
       })
     ),
