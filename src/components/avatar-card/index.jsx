@@ -98,7 +98,9 @@ const AvatarCard = ({
               download
               rel="noreferrer"
             >
-              {language === 'pt' ? 'Baixar currículo' : 'Download Resume'}
+              {language === 'pt'
+                ? 'Baixar currículo (PDF)'
+                : 'Download CV (PDF)'}
             </a>
           ))}
       </div>

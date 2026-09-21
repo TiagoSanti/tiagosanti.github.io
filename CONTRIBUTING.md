@@ -32,6 +32,10 @@ This fork uses ES modules and ESLint's flat configuration in `eslint.config.mjs`
 npm ci
 ```
 
+For production builds, install the PDF renderer once:
+`npx playwright install chromium` (Linux CI: add `--with-deps`).
+`npm run build` generates the site and both CV PDFs. See `PDF-EXPORT.md`.
+
 ### Run dev server
 
 ```sh

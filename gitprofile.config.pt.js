@@ -4,13 +4,13 @@ const config = {
   language: 'pt',
   profile: {
     // Atualizar manualmente na revisão do conteúdo, nunca por data do Git/build.
-    contentUpdatedAt: '2026-09-18',
+    contentUpdatedAt: '2026-09-21',
     name: 'Tiago Santi',
     displayName: 'Tiago C. Santi',
     location: 'Campo Grande, MS, Brasil',
     bio: 'Pesquisador em Machine Learning | Mestrando em Ciência da Computação na UFMS | Engenheiro de Software',
     about:
-      'Minha trajetória combina pesquisa em Machine Learning e desenvolvimento de software. No mestrado em Ciência da Computação da UFMS, com bolsa CAPES e atuação acadêmica junto ao Laboratório de Inteligência Artificial (LIA), investigo como redes neurais podem aprender novas classes sem perder conhecimento anterior. Meus interesses incluem Aprendizado Contínuo, aprendizado de representações e de métricas, Deep Learning e aplicações de IA apoiadas por Engenharia de Software.',
+      'Minha trajetória combina pesquisa em Machine Learning e desenvolvimento de software. Sou mestrando em Ciência da Computação na UFMS, com bolsa CAPES, e integrante discente do Laboratório de Inteligência Artificial (LIA), com vínculo registrado no Diretório dos Grupos de Pesquisa do CNPq na linha de Aprendizado de Máquina. Minha pesquisa investiga como redes neurais podem aprender novas classes sem perder conhecimento anterior. Meus interesses incluem Aprendizado Contínuo, aprendizado de representações e de métricas, Deep Learning e aplicações de IA apoiadas por Engenharia de Software.',
   },
   publications: [
     {
@@ -70,7 +70,7 @@ const config = {
     lattes: 'https://lattes.cnpq.br/1032420798696234',
   },
   resume: {
-    fileUrl: '', // URL vazia oculta o botão de download do currículo.
+    fileUrl: '/pdf/tiago-santi-cv-pt.pdf',
   },
   skillGroups: [
     {

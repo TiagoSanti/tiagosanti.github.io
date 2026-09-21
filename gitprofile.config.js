@@ -4,13 +4,13 @@ const config = {
   language: 'en',
   profile: {
     // Update manually when CV content is reviewed, never from Git/build dates.
-    contentUpdatedAt: '2026-09-18',
+    contentUpdatedAt: '2026-09-21',
     name: 'Tiago Santi',
     displayName: 'Tiago C. Santi',
     location: 'Campo Grande, MS, Brazil',
     bio: 'Machine Learning Researcher | MSc Student in Computer Science at UFMS | Software Engineer',
     about:
-      'My work combines Machine Learning research and software development. As a CAPES-funded MSc student in Computer Science at UFMS, working academically with the Artificial Intelligence Laboratory (LIA), I investigate how neural networks can learn new classes while retaining prior knowledge. My interests include Continual Learning, Representation Learning, Metric Learning, Deep Learning, and AI applications supported by Software Engineering.',
+      'My work combines Machine Learning research and software development. I am a CAPES-funded MSc student in Computer Science at UFMS and a student member of its Artificial Intelligence Laboratory (LIA), listed in the CNPq Directory of Research Groups under the Machine Learning research line. My research investigates how neural networks can learn new classes while retaining prior knowledge. My interests include Continual Learning, Representation Learning, Metric Learning, Deep Learning, and AI applications supported by Software Engineering.',
   },
   publications: [
     {
@@ -70,7 +70,7 @@ const config = {
     lattes: 'https://lattes.cnpq.br/1032420798696234',
   },
   resume: {
-    fileUrl: '', // Empty fileUrl will hide the `Download Resume` button.
+    fileUrl: '/pdf/tiago-santi-cv-en.pdf',
   },
   skillGroups: [
     {
