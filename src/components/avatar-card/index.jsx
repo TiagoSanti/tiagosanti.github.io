@@ -6,7 +6,6 @@ const AvatarCard = ({
   profile,
   loading,
   avatarRing,
-  resume,
   lattes,
   language = 'en',
 }) => {
@@ -85,24 +84,6 @@ const AvatarCard = ({
             </time>
           </p>
         )}
-        {resume?.fileUrl &&
-          (loading ? (
-            <div className="mt-6">
-              {skeleton({ width: 'w-40', height: 'h-8' })}
-            </div>
-          ) : (
-            <a
-              href={resume.fileUrl}
-              target="_blank"
-              className="btn btn-outline btn-sm text-xs mt-6 opacity-50"
-              download
-              rel="noreferrer"
-            >
-              {language === 'pt'
-                ? 'Baixar currículo (PDF)'
-                : 'Download CV (PDF)'}
-            </a>
-          ))}
       </div>
     </div>
   );
@@ -114,9 +95,6 @@ AvatarCard.propTypes = {
   profile: PropTypes.object,
   loading: PropTypes.bool.isRequired,
   avatarRing: PropTypes.bool.isRequired,
-  resume: PropTypes.shape({
-    fileUrl: PropTypes.string,
-  }),
 };
 
 export default AvatarCard;

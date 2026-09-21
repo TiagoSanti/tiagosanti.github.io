@@ -32,7 +32,7 @@ import {
   orderRepositories,
 } from '../helpers/github.mjs';
 import ExternalProject from './external-project';
-import { AiOutlineControl } from 'react-icons/ai';
+import { AiOutlineControl, AiOutlineDownload } from 'react-icons/ai';
 
 const bgColor = 'bg-base-300';
 const Blog = lazy(() => import('./blog'));
@@ -207,6 +207,24 @@ const GitProfileContent = ({ config, languageSwitcher }) => {
             <div className={`p-2 lg:p-4 min-h-full ${bgColor}`}>
               <div className="container mx-auto">
                 <div className="flex justify-end items-center gap-2 mb-6">
+                  {sanitizedConfig.resume?.fileUrl && (
+                    <a
+                      href={sanitizedConfig.resume.fileUrl}
+                      download
+                      aria-label={
+                        pt ? 'Baixar currículo (PDF)' : 'Download CV (PDF)'
+                      }
+                      title={
+                        pt ? 'Baixar currículo (PDF)' : 'Download CV (PDF)'
+                      }
+                      className="btn btn-ghost btn-square text-base-content opacity-50 hover:opacity-100 focus-visible:opacity-100"
+                    >
+                      <AiOutlineDownload
+                        className="w-5 h-5"
+                        aria-hidden="true"
+                      />
+                    </a>
+                  )}
                   {!sanitizedConfig.themeConfig.disableSwitch && (
                     <div
                       title={pt ? 'Alterar tema' : 'Change Theme'}
@@ -273,7 +291,6 @@ const GitProfileContent = ({ config, languageSwitcher }) => {
                         profile={displayProfile}
                         loading={loading}
                         avatarRing={!sanitizedConfig.themeConfig.hideAvatarRing}
-                        resume={sanitizedConfig.resume}
                         lattes={sanitizedConfig.social.lattes}
                       />
                       <Details
