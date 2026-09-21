@@ -3,6 +3,8 @@
 const config = {
   language: 'pt',
   profile: {
+    // Atualizar manualmente na revisão do conteúdo, nunca por data do Git/build.
+    contentUpdatedAt: '2026-09-18',
     name: 'Tiago Santi',
     displayName: 'Tiago C. Santi',
     location: 'Campo Grande, MS, Brasil',

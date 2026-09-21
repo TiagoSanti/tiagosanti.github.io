@@ -272,6 +272,8 @@ export interface Resume {
 export interface Config {
   language?: 'pt' | 'en';
   profile?: {
+    /** Manually maintained CV content revision date (YYYY-MM-DD). */
+    contentUpdatedAt?: string;
     name?: string;
     displayName?: string;
     bio?: string;

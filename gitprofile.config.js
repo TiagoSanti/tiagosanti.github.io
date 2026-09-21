@@ -3,6 +3,8 @@
 const config = {
   language: 'en',
   profile: {
+    // Update manually when CV content is reviewed, never from Git/build dates.
+    contentUpdatedAt: '2026-09-18',
     name: 'Tiago Santi',
     displayName: 'Tiago C. Santi',
     location: 'Campo Grande, MS, Brazil',

@@ -72,6 +72,19 @@ const AvatarCard = ({
             {language === 'pt' ? 'Currículo Lattes' : 'Lattes CV'}
           </a>
         )}
+        {!loading && profile?.contentUpdatedAt && (
+          <p className="mt-3 px-4 text-center text-xs text-base-content/60">
+            {language === 'pt' ? 'Atualizado em ' : 'Updated on '}
+            <time dateTime={profile.contentUpdatedAt}>
+              {new Intl.DateTimeFormat(language === 'pt' ? 'pt-BR' : 'en-US', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric',
+                timeZone: 'UTC',
+              }).format(new Date(`${profile.contentUpdatedAt}T00:00:00Z`))}
+            </time>
+          </p>
+        )}
         {resume?.fileUrl &&
           (loading ? (
             <div className="mt-6">
