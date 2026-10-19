@@ -88,10 +88,12 @@ const config = {
     {
       title: 'IA aplicada',
       items: [
-        'Visão computacional: processamento de imagens, detecção de objetos (YOLOv5) e reconhecimento facial',
+        'Visão computacional: processamento de imagens, detecção de objetos e reconhecimento facial',
         'PLN: análise de sentimentos e classificação de textos',
         'LLMs: engenharia de prompt, fine-tuning e RAG',
         'Orquestração de agentes de IA e fluxos multiagente',
+        'Integração de agentes de IA com APIs e ferramentas',
+        'Avaliação e monitoramento de LLMs e sistemas agênticos',
       ],
     },
     {

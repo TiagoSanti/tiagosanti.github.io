@@ -88,10 +88,12 @@ const config = {
     {
       title: 'Applied AI',
       items: [
-        'Computer Vision: image processing, object detection (YOLOv5), face recognition',
+        'Computer Vision: image processing, object detection, face recognition',
         'NLP: sentiment analysis and text classification',
         'LLMs: prompt engineering, fine-tuning and RAG',
         'AI agent orchestration and multi-agent workflows',
+        'Integrating AI agents with APIs and tools',
+        'Evaluation and monitoring of LLMs and agentic systems',
       ],
     },
     {
