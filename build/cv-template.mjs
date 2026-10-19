@@ -30,7 +30,7 @@ export const renderCV = (config) => {
         proceedings: 'Resumos publicados em anais de eventos',
         courses: 'Cursos e reconhecimentos',
         appendix: 'Detalhes dos projetos',
-        updated: 'Conteúdo revisado em',
+        updated: 'Atualizado em',
         source: 'Currículo online',
         projectLink: 'Conhecer o projeto',
         certificate: 'Referência',
@@ -46,7 +46,7 @@ export const renderCV = (config) => {
         proceedings: 'Abstracts published in conference proceedings',
         courses: 'Courses & Recognition',
         appendix: 'Project Details',
-        updated: 'Content reviewed on',
+        updated: 'Updated on',
         source: 'Online CV',
         projectLink: 'Explore the project',
         certificate: 'Reference',
@@ -188,6 +188,6 @@ export const renderCV = (config) => {
     .appendix article { break-inside: auto; }
   </style></head><body><main><header class="identity"><h1>${escapeHtml(name)}</h1>
     <p class="bio">${escapeHtml(profile.bio)}</p><p class="contacts">${contact}</p>
-    ${reviewed ? `<p class="updated">${words.updated}: ${escapeHtml(reviewed)}</p>` : ''}
+    
     </header>${content}</main></body></html>`;
 };
