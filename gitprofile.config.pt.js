@@ -91,6 +91,7 @@ const config = {
         'Visão computacional: processamento de imagens, detecção de objetos (YOLOv5) e reconhecimento facial',
         'PLN: análise de sentimentos e classificação de textos',
         'LLMs: engenharia de prompt, fine-tuning e RAG',
+        'Orquestração de agentes de IA e fluxos multiagente',
       ],
     },
     {

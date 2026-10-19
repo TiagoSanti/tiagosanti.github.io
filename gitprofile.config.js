@@ -91,6 +91,7 @@ const config = {
         'Computer Vision: image processing, object detection (YOLOv5), face recognition',
         'NLP: sentiment analysis and text classification',
         'LLMs: prompt engineering, fine-tuning and RAG',
+        'AI agent orchestration and multi-agent workflows',
       ],
     },
     {
