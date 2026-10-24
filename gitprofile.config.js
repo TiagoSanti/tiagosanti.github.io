@@ -139,7 +139,7 @@ const config = {
       to: 'July 2026',
       companyLink: 'https://www.facom.ufms.br/laboratorios/',
       description:
-        'Applied technological innovation and process automation for public-sector legal services.',
+        'Applied AI research and development in the legal domain, focused on process automation for public-sector legal services. Worked with local models in resource-constrained environments and with agents built on large language models.',
     },
     {
       company:

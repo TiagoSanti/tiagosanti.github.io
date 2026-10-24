@@ -139,7 +139,7 @@ const config = {
       to: 'Julho 2026',
       companyLink: 'https://www.facom.ufms.br/laboratorios/',
       description:
-        'Aplicação de conceitos em inovação tecnológica e automação de processos na advocacia pública.',
+        'Pesquisa e desenvolvimento de IA aplicada à área jurídica, com foco em automação de processos na advocacia pública. Atuação com modelos locais em ambientes com recursos restritos e com agentes baseados em grandes modelos de linguagem.',
     },
     {
       company:
