@@ -71,6 +71,53 @@ const config = {
   },
   resume: {
     fileUrl: '/pdf/tiago-santi-cv-pt.pdf',
+    imageUrls: {
+      landscape: '/img/tiago-santi-summary-landscape-pt.png',
+      portrait: '/img/tiago-santi-summary-portrait-pt.png',
+    },
+  },
+  // Conteúdo curado para as imagens-resumo 1920x1080 e 1080x1920.
+  summaryCard: {
+    research: {
+      title: 'Pesquisa atual',
+      text: 'Aprendizado Contínuo e Aprendizado Incremental de Classes: como redes neurais aprendem novas classes sem esquecer o conhecimento anterior.',
+      context: 'Mestrado em Ciência da Computação · UFMS · LIA · bolsa CAPES',
+    },
+    experiences: [
+      {
+        role: 'Engenheiro de IA — Bolsista',
+        org: 'LEDES/UFMS · IA aplicada à área jurídica',
+        period: '2025–2026',
+      },
+      {
+        role: 'Estagiário em IA → Bolsista Especialista em Software',
+        org: 'Centro de Inovação SESI',
+        period: '2022',
+      },
+      {
+        role: 'Bolsista PIBITI/CNPq',
+        org: 'Deep Learning e Visão Computacional · UFMS',
+        period: '2021–2022',
+      },
+    ],
+    highlights: [
+      '2 programas de computador registrados no INPI',
+      '3 resumos nos anais do Integra UFMS (2022–2024)',
+      'Menção honrosa — Tuiaia, pantanal.dev',
+      'Bacharel em Engenharia de Software · UFMS · CR 9,02/10',
+    ],
+    skills: [
+      'Python',
+      'PyTorch',
+      'Deep Learning',
+      'Aprendizado Contínuo',
+      'Visão Computacional',
+      'PLN',
+      'LLMs e agentes de IA',
+      'FastAPI',
+      'Docker',
+      'Git',
+    ],
   },
   skillGroups: [
     {
@@ -300,7 +347,7 @@ const config = {
     snippetVersion: 6,
   },
   themeConfig: {
-    defaultTheme: 'forest',
+    defaultTheme: 'light',
     disableSwitch: false,
     respectPrefersColorScheme: false,
     hideAvatarRing: false,

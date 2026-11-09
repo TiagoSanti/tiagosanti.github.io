@@ -267,6 +267,11 @@ export interface Education {
 
 export interface Resume {
   fileUrl?: string;
+  /** 1920x1080 and 1080x1920 summary images generated at build time. */
+  imageUrls?: {
+    landscape?: string;
+    portrait?: string;
+  };
 }
 
 export interface Config {

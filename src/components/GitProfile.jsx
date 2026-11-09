@@ -58,6 +58,21 @@ const GitProfileContent = ({ config, languageSwitcher }) => {
   const [error, setError] = useState(null);
   const language = sanitizedConfig.language;
   const pt = language === 'pt';
+  const { fileUrl, imageUrls } = sanitizedConfig.resume;
+  const downloads = [
+    fileUrl && {
+      href: fileUrl,
+      label: pt ? 'Baixar currículo (PDF)' : 'Download CV (PDF)',
+    },
+    imageUrls.landscape && {
+      href: imageUrls.landscape,
+      label: pt ? 'Resumo em imagem (paisagem)' : 'Summary image (landscape)',
+    },
+    imageUrls.portrait && {
+      href: imageUrls.portrait,
+      label: pt ? 'Resumo em imagem (retrato)' : 'Summary image (portrait)',
+    },
+  ].filter(Boolean);
   useEffect(() => {
     analytics.initialize({
       id: sanitizedConfig.googleAnalytics.id,
@@ -207,16 +222,12 @@ const GitProfileContent = ({ config, languageSwitcher }) => {
             <div className={`p-2 lg:p-4 min-h-full ${bgColor}`}>
               <div className="container mx-auto">
                 <div className="flex justify-end items-center gap-2 mb-6">
-                  {sanitizedConfig.resume?.fileUrl && (
+                  {downloads.length === 1 && (
                     <a
-                      href={sanitizedConfig.resume.fileUrl}
+                      href={downloads[0].href}
                       download
-                      aria-label={
-                        pt ? 'Baixar currículo (PDF)' : 'Download CV (PDF)'
-                      }
-                      title={
-                        pt ? 'Baixar currículo (PDF)' : 'Download CV (PDF)'
-                      }
+                      aria-label={downloads[0].label}
+                      title={downloads[0].label}
                       className="btn btn-ghost btn-square text-base-content opacity-50 hover:opacity-100 focus-visible:opacity-100"
                     >
                       <AiOutlineDownload
@@ -224,6 +235,40 @@ const GitProfileContent = ({ config, languageSwitcher }) => {
                         aria-hidden="true"
                       />
                     </a>
+                  )}
+                  {downloads.length > 1 && (
+                    <div
+                      title={pt ? 'Baixar currículo' : 'Download CV'}
+                      className="dropdown"
+                    >
+                      <button
+                        type="button"
+                        tabIndex={0}
+                        aria-label={pt ? 'Baixar currículo' : 'Download CV'}
+                        className="btn btn-ghost btn-square text-base-content opacity-50 hover:opacity-100 focus-visible:opacity-100"
+                      >
+                        <AiOutlineDownload
+                          className="w-5 h-5"
+                          aria-hidden="true"
+                        />
+                      </button>
+                      <ul
+                        tabIndex={0}
+                        className="mt-2 p-2 shadow-2xl menu compact dropdown-content w-max rounded-lg bg-base-200 text-base-content z-10"
+                      >
+                        {downloads.map((item) => (
+                          <li key={item.href}>
+                            <a
+                              href={item.href}
+                              download
+                              className="whitespace-nowrap"
+                            >
+                              {item.label}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   )}
                   {!sanitizedConfig.themeConfig.disableSwitch && (
                     <div
@@ -433,6 +478,10 @@ GitProfile.propTypes = {
     }),
     resume: PropTypes.shape({
       fileUrl: PropTypes.string,
+      imageUrls: PropTypes.shape({
+        landscape: PropTypes.string,
+        portrait: PropTypes.string,
+      }),
     }),
     skills: PropTypes.array,
     skillGroups: PropTypes.arrayOf(

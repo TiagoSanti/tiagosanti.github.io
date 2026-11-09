@@ -164,6 +164,10 @@ export const sanitizeConfig = (config) => {
     },
     resume: {
       fileUrl: config?.resume?.fileUrl || '',
+      imageUrls: {
+        landscape: config?.resume?.imageUrls?.landscape || '',
+        portrait: config?.resume?.imageUrls?.portrait || '',
+      },
     },
     skills: config?.skills || [],
     skillGroups: config?.skillGroups || [],

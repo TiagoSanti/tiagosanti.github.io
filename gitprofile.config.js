@@ -71,6 +71,53 @@ const config = {
   },
   resume: {
     fileUrl: '/pdf/tiago-santi-cv-en.pdf',
+    imageUrls: {
+      landscape: '/img/tiago-santi-summary-landscape-en.png',
+      portrait: '/img/tiago-santi-summary-portrait-en.png',
+    },
+  },
+  // Curated content for the 1920x1080 and 1080x1920 summary images.
+  summaryCard: {
+    research: {
+      title: 'Current research',
+      text: 'Continual Learning and Class-Incremental Learning: how neural networks learn new classes while retaining prior knowledge.',
+      context: 'MSc in Computer Science · UFMS · LIA · CAPES scholarship',
+    },
+    experiences: [
+      {
+        role: 'AI Engineer — Scholarship Holder',
+        org: 'LEDES/UFMS · legal-domain AI',
+        period: '2025–2026',
+      },
+      {
+        role: 'AI Development Intern → Software Specialist',
+        org: 'SESI Innovation Center',
+        period: '2022',
+      },
+      {
+        role: 'PIBITI/CNPq Scholarship',
+        org: 'Deep Learning & Computer Vision · UFMS',
+        period: '2021–2022',
+      },
+    ],
+    highlights: [
+      '2 computer programs registered with INPI',
+      '3 abstracts in Integra UFMS proceedings (2022–2024)',
+      'Honorable Mention — Tuiaia, pantanal.dev',
+      'B.Sc. in Software Engineering · UFMS · GPA 9.02/10',
+    ],
+    skills: [
+      'Python',
+      'PyTorch',
+      'Deep Learning',
+      'Continual Learning',
+      'Computer Vision',
+      'NLP',
+      'LLMs & AI agents',
+      'FastAPI',
+      'Docker',
+      'Git',
+    ],
   },
   skillGroups: [
     {
@@ -303,7 +350,7 @@ const config = {
     snippetVersion: 6,
   },
   themeConfig: {
-    defaultTheme: 'forest',
+    defaultTheme: 'light',
 
     // Hides the switch in the navbar
     // Useful if you want to support a single color mode
